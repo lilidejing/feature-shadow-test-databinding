@@ -73,32 +73,6 @@ dependencies {
 preBuild.dependsOn(":sample-host-lib:jarDebugPackage")
 
 
-//def createDuplicateApkTask(buildType) {
-//    def apkDir = file("${getBuildDir()}/outputs/apk/plugin/$buildType")
-//
-//    return tasks.create("duplicatePlugin${buildType.capitalize()}ApkTask", Copy) {
-//        group = 'build'
-//        description = "复制一个sample-app-plugin-${buildType}.apk用于测试目的"
-//        from(apkDir) {
-//            include("sample-app-plugin-${buildType}.apk")
-//            rename { "sample-app-plugin-${buildType}2.apk" }
-//        }
-//        into(apkDir)
-//
-//    }.dependsOn(":sample-app:assemblePlugin${buildType.capitalize()}")
-//}
-
-//tasks.whenTaskAdded { task ->
-//    if (task.name == "assemblePluginDebug") {
-//        def createTask = createDuplicateApkTask('debug')
-//        task.finalizedBy(createTask)
-//    }
-//    if (task.name == "assemblePluginRelease") {
-//        def createTask = createDuplicateApkTask('release')
-//        task.finalizedBy(createTask)
-//    }
-//}
-
 
 shadow {
     transform {
@@ -148,35 +122,6 @@ shadow {
                 }
             }
 
-//            release {
-//                loaderApkConfig = new Tuple2('sample-loader-release.apk', ':sample-loader:assembleRelease')
-//                runtimeApkConfig = new Tuple2('sample-runtime-release.apk', ':sample-runtime:assembleRelease')
-//                pluginApks {
-//                    pluginApk1 {
-//                        businessName = 'sample-plugin-app'
-//                        partKey = 'sample-plugin-app'
-//                        buildTask = ':sample-app:assemblePluginRelease'
-//                        apkPath = 'projects/sample/source/sample-plugin/sample-app/build/outputs/apk/plugin/release/sample-app-plugin-release.apk'
-//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-//                        dependsOn = ['sample-base']
-//                    }
-//                    pluginApk2 {
-//                        businessName = 'sample-plugin-app2'
-//                        partKey = 'sample-plugin-app2'
-//                        buildTask = ':sample-app:assemblePluginRelease'
-//                        apkPath = 'projects/sample/source/sample-plugin/sample-app/build/outputs/apk/plugin/release/sample-app-plugin-release2.apk'
-//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-//                        dependsOn = ['sample-base']
-//                    }
-//                    sampleBase {
-//                        businessName = 'sample-plugin-app'
-//                        partKey = 'sample-base'
-//                        buildTask = ':sample-base:assemblePluginRelease'
-//                        apkPath = 'projects/sample/source/sample-plugin/sample-base/build/outputs/apk/plugin/release/sample-base-plugin-release.apk'
-//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-//                    }
-//                }
-//            }
         }
 
         loaderApkProjectPath = 'projects/sample/source/sample-plugin/sample-loader'

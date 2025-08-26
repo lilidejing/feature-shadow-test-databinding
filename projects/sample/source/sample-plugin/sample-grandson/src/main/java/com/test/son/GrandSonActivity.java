@@ -44,8 +44,13 @@ public class GrandSonActivity extends Activity {
         Button skip = findViewById(R.id.button);
         skip.setOnClickListener(v -> {
 
-            Intent intent = new Intent(GrandSonActivity.this, MainActivity.class);
-            GrandSonActivity.this.startActivity(intent);
+            // GrandSon 插件中
+            Intent intent = new Intent();
+            intent.setClassName(GrandSonActivity.this.getPackageName(),
+                    "com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity");
+            startActivity(intent);
+
+
 
         });
 

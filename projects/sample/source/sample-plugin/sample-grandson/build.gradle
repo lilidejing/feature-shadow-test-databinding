@@ -58,7 +58,7 @@ android {
 }
 
 dependencies {
-//    implementation project(":sample-base-lib")
+    compileOnly project(":sample-base-lib")
 //
 //    //Shadow Transform后业务代码会有一部分实际引用runtime中的类
 //    //如果不以compileOnly方式依赖，会导致其他Transform或者Proguard找不到这些类
@@ -82,23 +82,6 @@ shadow {
                 loaderApkConfig = new Tuple2('sample-loader-debug.apk', ':sample-loader:assembleDebug')
                 runtimeApkConfig = new Tuple2('sample-runtime-debug.apk', ':sample-runtime:assembleDebug')
                 pluginApks {
-//                    pluginApk1 {
-//                        businessName = 'sample-plugin-app'
-//                        partKey = 'sample-plugin-app'
-//                        buildTask = ':sample-app:assemblePluginDebug'
-//                        apkPath = 'projects/sample/source/sample-plugin/sample-app/build/outputs/apk/plugin/debug/sample-app-plugin-debug.apk'
-//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-////                        dependsOn = ['sample-base']
-//                    }
-
-//                    pluginApk2 {
-//                        businessName = 'sample-plugin-app2'
-//                        partKey = 'sample-plugin-app2'
-//                        buildTask = ':sample-app:assemblePluginDebug'
-//                        apkPath = 'projects/sample/source/sample-plugin/sample-app/build/outputs/apk/plugin/debug/sample-app-plugin-debug2.apk'
-//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-//                        dependsOn = ['sample-base']
-//                    }
                     sampleGrandSon {
                         businessName = 'sample-grandson-plugin-app'
                         partKey = 'sample-grandson'
