@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.tencent.shadow.sample.plugin.app.lib.base.plugin.grand">
+
+    <application android:name="com.test.son.MyBaseGrandsonApplication">
+
+        <activity android:name="com.test.son.GrandSonActivity" />
+    </application>
+</manifest>
+
