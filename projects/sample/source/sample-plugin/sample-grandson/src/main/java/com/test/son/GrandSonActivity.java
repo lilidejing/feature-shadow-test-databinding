@@ -19,6 +19,7 @@
 package com.test.son;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.grand.R;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +43,9 @@ public class GrandSonActivity extends Activity {
         setTitle("GrandSonActivity跳转接收");
         Button skip = findViewById(R.id.button);
         skip.setOnClickListener(v -> {
+
+            Intent intent = new Intent(GrandSonActivity.this, MainActivity.class);
+            GrandSonActivity.this.startActivity(intent);
 
         });
 
