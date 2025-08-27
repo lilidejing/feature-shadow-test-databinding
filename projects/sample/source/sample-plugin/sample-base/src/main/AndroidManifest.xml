@@ -4,7 +4,7 @@
 
     <application
         android:name="com.tencent.shadow.sample.plugin.app.lib.gallery.TestApplication"
-        android:theme="@style/CustomActivityTheme">
+        android:theme="@style/Theme.MyApp">
 
         <activity android:name="com.tencent.test.MyTestActivity" />
 

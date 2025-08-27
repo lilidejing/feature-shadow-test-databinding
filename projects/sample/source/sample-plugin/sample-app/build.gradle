@@ -123,6 +123,7 @@ shadow {
                         buildTask = ':sample-grandson:assemblePluginDebug'
                         apkPath = 'projects/sample/source/sample-plugin/sample-grandson/build/outputs/apk/plugin/debug/sample-grandson-plugin-debug.apk'
                         hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+                        dependsOn = ['sample-base']
                     }
                 }
             }

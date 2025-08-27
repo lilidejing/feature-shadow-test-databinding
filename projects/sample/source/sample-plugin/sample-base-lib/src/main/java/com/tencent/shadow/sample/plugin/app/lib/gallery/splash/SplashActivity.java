@@ -34,7 +34,10 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_Light);
         setContentView(R.layout.layout_splash);
+
+
 
         mSplashAnimation = new SplashAnimation(this);
         mSplashAnimation.start();

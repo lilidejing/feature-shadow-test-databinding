@@ -59,11 +59,11 @@ public class GrandSonActivity extends Activity {
 //                    "com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity");
 //            startActivity(intent);
 
-//            Intent intent = new Intent(this, SplashActivity.class);
-//            startActivity(intent);
+            Intent intent = new Intent(this, SplashActivity.class);
+            startActivity(intent);
 
 
-            ToastUtil.showToast(this, "公共业务的工具类");
+//            ToastUtil.showToast(this, "公共业务的工具类");
 
 
 
