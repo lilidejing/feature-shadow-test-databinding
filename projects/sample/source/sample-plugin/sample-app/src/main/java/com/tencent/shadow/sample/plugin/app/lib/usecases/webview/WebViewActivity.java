@@ -3,10 +3,11 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.webview;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCase;
 

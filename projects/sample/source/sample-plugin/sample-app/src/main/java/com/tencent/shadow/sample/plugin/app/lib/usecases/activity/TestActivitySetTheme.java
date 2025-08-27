@@ -21,7 +21,6 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
@@ -50,7 +49,7 @@ public class TestActivitySetTheme extends Activity {
     int currentTheme = 0;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         int currentTheme = getIntent().getIntExtra("theme", 0);
         currentTheme++;
         setTheme(currentTheme % 2 == 0 ? R.style.TestPluginTheme : R.style.PluginAppThemeLight);

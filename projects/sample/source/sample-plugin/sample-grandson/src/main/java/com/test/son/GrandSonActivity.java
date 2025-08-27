@@ -27,7 +27,10 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.grand.R;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.splash.SplashActivity;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,10 +48,22 @@ public class GrandSonActivity extends Activity {
         skip.setOnClickListener(v -> {
 
             // GrandSon 插件中
-            Intent intent = new Intent();
-            intent.setClassName(GrandSonActivity.this.getPackageName(),
-                    "com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity");
-            startActivity(intent);
+//            Intent intent = new Intent();
+//            intent.setClassName(GrandSonActivity.this.getPackageName(),
+//                    "com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity");
+//            startActivity(intent);
+
+
+//            Intent intent = new Intent();
+//            intent.setClassName(GrandSonActivity.this.getPackageName(),
+//                    "com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity");
+//            startActivity(intent);
+
+//            Intent intent = new Intent(this, SplashActivity.class);
+//            startActivity(intent);
+
+
+            ToastUtil.showToast(this, "公共业务的工具类");
 
 
 

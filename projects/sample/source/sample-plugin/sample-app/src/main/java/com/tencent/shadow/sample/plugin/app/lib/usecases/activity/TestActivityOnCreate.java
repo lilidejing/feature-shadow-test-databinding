@@ -21,7 +21,6 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
@@ -48,7 +47,7 @@ public class TestActivityOnCreate extends Activity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_lifecycle);
         ToastUtil.showToast(this, "onCreate");

@@ -21,7 +21,6 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
@@ -50,7 +49,7 @@ public class TestActivityOrientation extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_orientation);
         ToastUtil.showToast(this, "onCreate");

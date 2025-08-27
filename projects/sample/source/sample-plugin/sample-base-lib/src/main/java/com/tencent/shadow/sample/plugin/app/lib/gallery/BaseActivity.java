@@ -18,11 +18,13 @@
 
 package com.tencent.shadow.sample.plugin.app.lib.gallery;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 
-public class BaseActivity extends Activity {
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class BaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

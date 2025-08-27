@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
 import android.view.View;
 
 /**
@@ -15,7 +14,7 @@ import android.view.View;
 public class MyTestActivity extends Activity {
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(com.tencent.shadow.sample.plugin.app.lib.base.R.layout.layout_activity_test);
         findViewById(com.tencent.shadow.sample.plugin.app.lib.base.R.id.tv2).setOnClickListener(new View.OnClickListener() {

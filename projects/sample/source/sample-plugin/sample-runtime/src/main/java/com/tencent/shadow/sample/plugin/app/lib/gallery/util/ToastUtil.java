@@ -16,24 +16,14 @@
  *
  */
 
-package com.tencent.shadow.sample.plugin.app.lib.usecases.dialog;
+package com.tencent.shadow.sample.plugin.app.lib.gallery.util;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.view.Window;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+public class ToastUtil {
 
-public class TestDialog extends Dialog {
-
-    public TestDialog(@NonNull Context context) {
-        super(context);
-
-        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    public static void showToast(Context context, String message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
-
-
 }

@@ -20,7 +20,6 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
@@ -49,7 +48,7 @@ public class TestActivityReCreate extends Activity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_recreate);
         TextView textView = findViewById(R.id.tv_msg);

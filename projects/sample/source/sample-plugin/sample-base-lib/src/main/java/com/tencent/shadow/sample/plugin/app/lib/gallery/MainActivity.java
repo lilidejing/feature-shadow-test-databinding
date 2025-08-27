@@ -18,7 +18,6 @@
 
 package com.tencent.shadow.sample.plugin.app.lib.gallery;
 
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
@@ -31,6 +30,8 @@ import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.ryg.expandable.ui.PinnedHeaderExpandableListView;
@@ -45,7 +46,7 @@ import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCaseCate
 
 import java.util.List;
 
-public class MainActivity extends Activity implements
+public class MainActivity extends AppCompatActivity implements
         ExpandableListView.OnChildClickListener,
         ExpandableListView.OnGroupClickListener,
         OnHeaderUpdateListener, OnGiveUpTouchEventListener {

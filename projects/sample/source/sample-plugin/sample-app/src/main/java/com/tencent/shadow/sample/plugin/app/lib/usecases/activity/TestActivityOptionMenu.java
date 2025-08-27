@@ -20,7 +20,6 @@ package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.Menu;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
@@ -46,7 +45,7 @@ public class TestActivityOptionMenu extends Activity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         setTheme(R.style.PluginAppThemeLight);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_settheme);
