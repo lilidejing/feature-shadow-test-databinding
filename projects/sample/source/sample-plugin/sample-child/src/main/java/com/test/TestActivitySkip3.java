@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.R;
+import com.test.tools.QtCollectionReport;
 
 public class TestActivitySkip3 extends Activity {
 
@@ -35,7 +36,11 @@ public class TestActivitySkip3 extends Activity {
         setTitle("Activity跳转接收");
         Button skip = findViewById(R.id.button);
         skip.setOnClickListener(v -> {
+            QtCollectionReport.putClickEvent("GrandSonActivity跳转接收", "插件孙子");
 
+            QtCollectionReport.downloadTimeEventReport(
+                    "abc", 200000, 2000, "成功", ""
+            );
         });
     }
 

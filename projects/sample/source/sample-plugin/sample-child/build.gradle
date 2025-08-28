@@ -28,6 +28,8 @@ android {
         targetSdkVersion project.TARGET_SDK_VERSION
         versionCode project.VERSION_CODE
         versionName project.VERSION_NAME
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -58,6 +60,8 @@ android {
 }
 
 dependencies {
+    implementation project(":bury-point")
+    compileOnly project(":sample-base-lib")
 //    implementation project(":sample-base-lib")
 //
 //    //Shadow Transform后业务代码会有一部分实际引用runtime中的类
