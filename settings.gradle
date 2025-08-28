@@ -62,8 +62,8 @@ def includeSample() {
             'sample-app',
             'sample-child',
             'sample-grandson',
-            'bury-point'
-//            'utils'
+            'bury-point',
+            'utils'
     project(':sample-constant').projectDir = file('projects/sample/source/sample-constant')
     project(':sample-host').projectDir = file('projects/sample/source/sample-host')
     project(':sample-host-lib').projectDir = file('projects/sample/source/sample-host-lib')
@@ -78,7 +78,7 @@ def includeSample() {
     project(':sample-child').projectDir = file('projects/sample/source/sample-plugin/sample-child')
     project(':sample-grandson').projectDir = file('projects/sample/source/sample-plugin/sample-grandson')
     project(':bury-point').projectDir = file('projects/sample/source/sample-plugin/bury-point')
-//    project(':utils').projectDir = file('projects/sample/source/sample-plugin/utils')
+    project(':utils').projectDir = file('projects/sample/source/sample-plugin/utils')
 }
 
 def includeSampleDynamicApk() {

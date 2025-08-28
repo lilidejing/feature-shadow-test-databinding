@@ -6,7 +6,7 @@ import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 import androidx.core.content.ContextCompat
 import com.kye.pda.biz.common.utils.R
-import com.kye.pda.utils.SpannableStringUtil
+//import com.kye.pda.utils.SpannableStringUtil
 import java.math.BigDecimal
 
 /**
@@ -44,7 +44,7 @@ class WeightHandleUtil {
          * 输入框处理重量展示方法
          * @param weight 重量字符串
          */
-        fun handleWeightDisplay(context: Context?, weight: String?): CharSequence? {
+       /* fun handleWeightDisplay(context: Context?, weight: String?): CharSequence? {
             if (context == null || weight.isNullOrEmpty()) {
                 return weight
             }
@@ -137,7 +137,7 @@ class WeightHandleUtil {
             return weight
 
         }
-
+*/
         /**
          * 字符串转BigDecimal
          *

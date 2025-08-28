@@ -1,7 +1,7 @@
 package com.kye.utils
 
 import android.text.TextUtils
-import com.kye.pda.utilcode.util.ActivityUtils
+//import com.kye.pda.utilcode.util.ActivityUtils
 
 /**
  * @author gsy
@@ -91,7 +91,7 @@ object ChangeOrderFlowUtil {
      * @param scanNumber 扫描单号
      * @return 跨越运单号
      */
-    fun serialNumberConvertWaybillNumber(scanNumber: String?): String {
+    /*fun serialNumberConvertWaybillNumber(scanNumber: String?): String {
         if (TextUtils.isEmpty(scanNumber)) {
             return ""
         }
@@ -125,5 +125,5 @@ object ChangeOrderFlowUtil {
         } else {
             scanNumber ?: ""
         }
-    }
+    }*/
 }

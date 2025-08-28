@@ -68,7 +68,7 @@ dependencies {
         }
     }
 
-//    implementation project(":utils")
+    implementation project(":utils")
 
 //    implementation kyeLibs.arouter.api
 //    kapt kyeLibs.arouter.compiler
