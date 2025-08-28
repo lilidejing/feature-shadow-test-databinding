@@ -60,7 +60,7 @@ android {
 }
 
 dependencies {
-    implementation project(":bury-point")
+//    implementation project(":bury-point")
     compileOnly project(":sample-base-lib")
 //    implementation project(":sample-base-lib")
 //

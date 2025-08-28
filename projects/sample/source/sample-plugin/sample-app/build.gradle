@@ -114,6 +114,7 @@ shadow {
                         buildTask = ':sample-child:assemblePluginDebug'
                         apkPath = 'projects/sample/source/sample-plugin/sample-child/build/outputs/apk/plugin/debug/sample-child-plugin-debug.apk'
                         hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+                        dependsOn = ['sample-base']
                     }
 
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-plugin-debug.apk 打进zip包中了
