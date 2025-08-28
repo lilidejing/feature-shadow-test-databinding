@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.tencent.shadow.sample.plugin.app.lib.base.plugin.grand">
 
     <application android:name="com.test.son.MyBaseGrandsonApplication">
 
         <activity android:name="com.test.son.GrandSonActivity" />
+
+
+        <!-- 移除 AndroidX Startup 的自动初始化 -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="remove" />
     </application>
 </manifest>
 

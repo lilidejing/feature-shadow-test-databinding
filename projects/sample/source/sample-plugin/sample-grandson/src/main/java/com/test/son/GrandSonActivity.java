@@ -27,10 +27,11 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.grand.R;
-import com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity;
-import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
-import com.tencent.shadow.sample.plugin.app.lib.gallery.splash.SplashActivity;
-import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
+//import com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity;
+//import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
+//import com.tencent.shadow.sample.plugin.app.lib.gallery.splash.SplashActivity;
+//import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
+import com.test.son.tools.QtCollectionReport;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,62 +49,19 @@ public class GrandSonActivity extends Activity {
         skip.setOnClickListener(v -> {
 
             // GrandSon 插件中
-//            Intent intent = new Intent();
-//            intent.setClassName(GrandSonActivity.this.getPackageName(),
-//                    "com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity");
+
+//            Intent intent = new Intent(this, SplashActivity.class);
 //            startActivity(intent);
-
-
-//            Intent intent = new Intent();
-//            intent.setClassName(GrandSonActivity.this.getPackageName(),
-//                    "com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity");
-//            startActivity(intent);
-
-            Intent intent = new Intent(this, SplashActivity.class);
-            startActivity(intent);
 
 
 //            ToastUtil.showToast(this, "公共业务的工具类");
 
+            QtCollectionReport.putClickEvent("GrandSonActivity跳转接收", "插件孙子");
 
-
+            QtCollectionReport.downloadTimeEventReport(
+                    "abc", 200000, 2000, "成功", ""
+            );
         });
-
-        /*List<Integer> resList = new ArrayList<>();
-        List<Bitmap> bitmapList = new ArrayList<>();
-        resList.add(R.mipmap.pexels_arthur_shuraev_67501761_33528753);
-        resList.add(R.mipmap.pexels_arthur_shuraev_67501761_33528753_2);
-        resList.add(R.mipmap.pexels_gemilang_malang_travel_2154995644_33543277);
-        resList.add(R.mipmap.pexels_gemilang_malang_travel_2154995644_33543277_2);
-        resList.add(R.mipmap.pexels_gemilang_malang_travel_2154995644_33543277_22);
-        resList.add(R.mipmap.pexels_sandro_tedeschini_694018589_18071152);
-        resList.add(R.mipmap.pexels_sandro_tedeschini_694018589_18071152_2);
-        resList.add(R.mipmap.pexels_tiago_chaves_2154478168_33463350);
-        resList.add(R.mipmap.pexels_tiago_chaves_2154478168_33463350_2);
-        resList.add(R.mipmap.pexels_yasar_baskurt_706180077_33516862);
-        resList.add(R.mipmap.pexels_yasar_baskurt_706180077_33516862_2);
-        resList.add(R.mipmap.pexels_yasar_dbaskurt_706180077_33516862_2);
-        resList.add(R.mipmap.p1);
-        resList.add(R.mipmap.p12);
-        resList.add(R.mipmap.p1231);
-        resList.add(R.mipmap.p121211);
-        resList.add(R.mipmap.p1333);
-        resList.add(R.mipmap.p1344);
-        resList.add(R.mipmap.p13232);
-        resList.add(R.mipmap.p13323);
-        resList.add(R.mipmap.p133234);
-        resList.add(R.mipmap.p144553);
-        resList.add(R.mipmap.p143);
-        resList.add(R.mipmap.p1555);
-        resList.add(R.mipmap.p1567);
-        for (int i = 0; i < resList.size(); i++){
-            Log.d("lgj",resList.get(i).toString());
-            Bitmap b = BitmapFactory.decodeResource(getResources(), resList.get(i));
-            bitmapList.add(b);
-        }*/
-        /*for (int i = 0; i < bitmapList.size(); i++){
-            Log.d("lgj",bitmapList.get(i).toString());
-        }*/
 
     }
 

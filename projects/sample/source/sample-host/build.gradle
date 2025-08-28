@@ -50,6 +50,10 @@ dependencies {
     implementation project(':sample-host-lib')
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+
+
+//    implementation "androidx.lifecycle:lifecycle-runtime:2.8.4"
+    implementation "androidx.startup:startup-runtime:1.1.1"
 }
 
 def createCopyTask(projectName, buildType, name, apkName, inputFile, taskName) {

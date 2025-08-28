@@ -1,0 +1,84 @@
+apply plugin: "com.android.library"
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: "org.jetbrains.kotlin.android"
+
+android {
+    namespace 'com.kye.pda.biz.burypoint'
+    compileSdk project.COMPILE_SDK_VERSION
+
+    defaultConfig {
+        minSdkVersion project.MIN_SDK_VERSION
+        targetSdkVersion project.TARGET_SDK_VERSION
+        versionCode project.VERSION_CODE
+        versionName project.VERSION_NAME
+
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+
+
+        ndk { //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi-v7a"
+        }
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
+
+    //不进行代码静态检测
+    lintOptions {
+        abortOnError false
+    }
+}
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    compileOnly('androidx.appcompat:appcompat') {
+        version {
+            strictly '1.3.0' // Will make sure that library uses that version in your build
+        }
+    }
+
+//    implementation project(":utils")
+
+//    implementation kyeLibs.arouter.api
+//    kapt kyeLibs.arouter.compiler
+//    implementation project(':common-utils')
+//    implementation 'com.kye.pda.biz.component:base-pda'
+//    implementation project(':common-aidl')
+
+    api 'com.lydaas.qtsdk:qt-common:1.6.1.P'
+    //apm稳定性SDK库
+    api 'com.umeng.umsdk:apm-crash:1.5.2.1.0.0.3_pv'
+    //apm性能SDK库
+    api 'com.umeng.umsdk:apm-efs:1.6.0.001.210_pv'
+}

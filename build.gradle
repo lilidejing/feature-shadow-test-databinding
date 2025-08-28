@@ -17,6 +17,22 @@ buildscript {
         if (!System.getenv().containsKey("DISABLE_TENCENT_MAVEN_MIRROR")) {
             maven { url 'https://mirrors.tencent.com/nexus/repository/maven-public/' }
         } else {
+            mavenLocal()
+            maven {
+                url 'http://nexus.ky-tech.com.cn:8081/repository/maven-public/'
+                allowInsecureProtocol = true
+            }
+            maven {
+                url 'http://nexus.ky-tech.com.cn:8081/repository/apk-aar/'
+                allowInsecureProtocol = true
+            }
+            maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+            maven { url 'https://maven.aliyun.com/repository/jcenter' }
+            maven { url 'https://maven.aliyun.com/repository/central' }
+            //友盟maven
+            maven { url 'https://repo1.maven.org/maven2/' }
+            maven { url 'https://www.jitpack.io' }
+            maven { url 'https://developer.huawei.com/repo/' }
             google()
             mavenCentral()
         }

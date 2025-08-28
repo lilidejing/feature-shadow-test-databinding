@@ -1,0 +1,85 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    namespace "com.kye.pda.biz.common.utils"
+    compileSdk project.COMPILE_SDK_VERSION
+
+    defaultConfig {
+        minSdkVersion project.MIN_SDK_VERSION
+        targetSdkVersion project.TARGET_SDK_VERSION
+        versionCode project.VERSION_CODE
+        versionName project.VERSION_NAME
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters /*"armeabi",*/ "armeabi-v7a"/*, "x86"*/
+        }
+    }
+
+    buildTypes {
+        release {
+            buildConfigField "String", "key_release_part2", AK_RELEASE_PART2//key第二部分
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            buildConfigField "String", "key_release_part2", AK_RELEASE_PART2//key第二部分
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
+}
+
+dependencies {
+    implementation(fileTree(include: ['*.jar'], dir: 'libs'))
+    // zxing二维码操作类
+    api files('libs/core-3.1.0.jar')
+
+    // 公共的pda库
+    //implementation 'com.kye.pda.biz.component:common-pda'
+
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation "androidx.annotation:annotation:1.8.0"
+    implementation "com.google.code.findbugs:jsr305:3.0.2"
+    implementation "commons-cli:commons-cli:1.5.0"
+    implementation("com.facebook.stetho:stetho:1.6.0") {
+        transitive(false)
+    }
+//    debugImplementation kyeLibs.blockcanary
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    kapt "com.github.bumptech.glide:compiler:4.11.0"
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.11.0") {
+        exclude group: 'glide-parent'
+        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
+    }
+    implementation "com.squareup.okhttp3:okhttp:3.14.9"
+    // Gson解析库，Google出品
+    implementation "com.google.code.gson:gson:2.9.0"
+    implementation "com.tencent:mmkv:1.3.1"
+    implementation "io.reactivex.rxjava3:rxandroid:3.0.2"
+    api "com.getkeepsafe.relinker:relinker:1.4.4"
+
+//    api "com.kye.kyxg.common:lib-utils:1.1.4.6"
+    // 跨越小哥公共代码仓库
+//    implementation "com.kye.kyxg.common:lib-dimens:1.0.2.1"
+    implementation 'com.github.getActivity:ToastUtils:10.0'
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
+}
