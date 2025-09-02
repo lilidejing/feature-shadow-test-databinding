@@ -61,7 +61,7 @@ android {
 
 dependencies {
 //    implementation project(":bury-point")
-    compileOnly project(":sample-base-lib")
+//    compileOnly project(":sample-base-lib")
 //    implementation project(":sample-base-lib")
 //
 //    //Shadow Transform后业务代码会有一部分实际引用runtime中的类

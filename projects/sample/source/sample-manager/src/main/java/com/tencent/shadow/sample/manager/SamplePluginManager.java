@@ -132,13 +132,13 @@ public class SamplePluginManager extends FastPluginManager {
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_BASE);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_CHAID);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_MAIN_APP);
-                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_GRANDSON);
+//                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_GRANDSON);
 
                     // 3拉起插件application及入口activity
                     callApplicationOnCreate(PART_KEY_PLUGIN_BASE);
                     callApplicationOnCreate(PART_KEY_PLUGIN_SAMPLE_CHAID);
                     callApplicationOnCreate(PART_KEY_PLUGIN_MAIN_APP);
-                    callApplicationOnCreate(PART_KEY_PLUGIN_SAMPLE_GRANDSON);
+//                    callApplicationOnCreate(PART_KEY_PLUGIN_SAMPLE_GRANDSON);
 
                     Intent pluginIntent = new Intent();
                     pluginIntent.setClassName(

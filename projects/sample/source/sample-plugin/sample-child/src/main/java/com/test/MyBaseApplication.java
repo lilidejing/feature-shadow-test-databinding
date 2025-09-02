@@ -21,7 +21,7 @@ package com.test;
 import android.app.Application;
 import android.util.Log;
 
-import com.kye.pda.burypoint.QuickTrackingUtil;
+//import com.kye.pda.burypoint.QuickTrackingUtil;
 
 public class MyBaseApplication extends Application {
 
@@ -37,7 +37,7 @@ public class MyBaseApplication extends Application {
 
 
         // 友盟QT初始化
-        try {
+       /* try {
             QuickTrackingUtil.getInstance()
                     .preMainInit(this, true);
             Log.d("lgj", "【启动器】 友盟已经预初始化");
@@ -59,7 +59,7 @@ public class MyBaseApplication extends Application {
             Log.d("lgj", "初始化异常" + e.getMessage());
             e.printStackTrace();
 
-        }
+        }*/
     }
 
     public static MyBaseApplication getInstance() {
