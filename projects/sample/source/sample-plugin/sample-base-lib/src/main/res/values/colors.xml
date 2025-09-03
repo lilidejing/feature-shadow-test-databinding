@@ -5,4 +5,68 @@
     <color name="my_background">#F5F5F5</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="color_00000000">#00000000</color>
+
+
+
+    <!--UI公共库颜色-->
+    <!--main-->
+    <color name="common_color_main_no1">#F1E7FF</color>
+    <color name="common_color_main_no2">#d4C2F4</color>
+    <color name="common_color_main_no3">#B9A0ED</color>
+    <color name="common_color_main_no4">#9C80E3</color>
+    <color name="common_color_main_no5">#8061DA</color>
+    <color name="common_color_main_no6">#6445D1</color>
+    <color name="common_color_main_no7">#432CB0</color>
+    <!--yellow-->
+    <color name="common_color_functional_yellow_no1">#FFFAE7</color>
+    <color name="common_color_functional_yellow_no2">#FFEEBA</color>
+    <color name="common_color_functional_yellow_no3">#FEDE8B</color>
+    <color name="common_color_functional_yellow_no4">#FFCC5E</color>
+    <color name="common_color_functional_yellow_no5">#FFB530</color>
+    <color name="common_color_functional_yellow_no6">#FF9F02</color>
+    <color name="common_color_functional_yellow_no7">#D07A01</color>
+    <!--red-->
+    <color name="common_color_functional_red_no1">#FFECE8</color>
+    <color name="common_color_functional_red_no2">#FFD0C9</color>
+    <color name="common_color_functional_red_no3">#FDB2AC</color>
+    <color name="common_color_functional_red_no4">#FD948D</color>
+    <color name="common_color_functional_red_no5">#FA736F</color>
+    <color name="common_color_functional_red_no6">#FB5251</color>
+    <color name="common_color_functional_red_no7">#CF3337</color>
+    <!--green-->
+    <color name="common_color_functional_green_no1">#E9FFF0</color>
+    <color name="common_color_functional_green_no2">#B2F3C9</color>
+    <color name="common_color_functional_green_no3">#82E6A8</color>
+    <color name="common_color_functional_green_no4">#51E18D</color>
+    <color name="common_color_functional_green_no5">#2BCC74</color>
+    <color name="common_color_functional_green_no6">#03C15F</color>
+    <color name="common_color_functional_green_no7">#01A356</color>
+    <!--blue-->
+    <color name="common_color_functional_blue_no1">#E7F3FF</color>
+    <color name="common_color_functional_blue_no2">#C2DFFD</color>
+    <color name="common_color_functional_blue_no3">#9FC8FD</color>
+    <color name="common_color_functional_blue_no4">#7BAEFC</color>
+    <color name="common_color_functional_blue_no5">#5693FB</color>
+    <color name="common_color_functional_blue_no6">#3376FA</color>
+    <color name="common_color_functional_blue_no7">#1F55CF</color>
+    <!--black-->
+    <color name="common_color_functional_black_no1">#EEEEEE</color>
+    <color name="common_color_functional_black_no2">#DDDDDD</color>
+    <color name="common_color_functional_black_no3">#BBBBBB</color>
+    <color name="common_color_functional_black_no4">#888888</color>
+    <color name="common_color_functional_black_no5">#666666</color>
+    <color name="common_color_functional_black_no6">#333333</color>
+    <color name="common_color_functional_black_no7">#000000</color>
+    <color name="common_color_functional_black_no8">#3D3D3D</color>
+    <!--gray-->
+    <color name="common_color_functional_gray_no1">#FFFFFF</color>
+    <color name="common_color_functional_gray_no2">#F3F4F6</color>
+    <color name="common_color_functional_gray_no3">#E0E4F0</color>
+    <color name="common_color_functional_gray_no4">#A4ACCA</color>
+    <color name="common_color_functional_gray_no5">#868DB0</color>
+    <color name="common_color_functional_gray_no6">#52567B</color>
+    <color name="common_color_functional_gray_no7">#383B6F</color>
+    <!--UI公共库颜色-->
+
 </resources>

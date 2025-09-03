@@ -25,6 +25,7 @@
         android:id="@+id/layoutSpalsh">
 
         <TextView
+            android:id="@+id/tv_splash"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"

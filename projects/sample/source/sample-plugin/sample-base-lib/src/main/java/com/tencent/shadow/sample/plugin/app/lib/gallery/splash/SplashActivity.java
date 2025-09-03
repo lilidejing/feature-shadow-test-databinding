@@ -20,23 +20,22 @@ package com.tencent.shadow.sample.plugin.app.lib.gallery.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.R;
 import com.tencent.shadow.sample.plugin.app.lib.base.databinding.LayoutSplashBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BasesActivity {
 
     private SplashAnimation mSplashAnimation;
 
-    private LayoutSplashBinding binding; // 自动生成的 binding 类
+    private LayoutSplashBinding mDataBinding; // 自动生成的 binding 类
 
 
-    @Override
+   /* @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(androidx.appcompat.R.style.Theme_AppCompat_Light);
@@ -45,13 +44,24 @@ public class SplashActivity extends AppCompatActivity {
         // 再绑定 DataBinding
 //        binding = DataBindingUtil.bind(findViewById(android.R.id.content));
 
-        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_splash, null, false);
-
-        setContentView(binding.getRoot());
+//        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_splash, null, false);
+//
+//        setContentView(binding.getRoot());
 
         // 使用 DataBinding 加载布局
 //        binding = DataBindingUtil.setContentView(this, R.layout.layout_splash);
 
+
+    }*/
+
+
+    @Override
+    public int getLayoutResId() {
+        return R.layout.layout_splash;
+    }
+
+    @Override
+    protected void initView() {
         mSplashAnimation = new SplashAnimation(this);
         mSplashAnimation.start();
 
@@ -63,5 +73,29 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             }
         });
+    }
+
+    @Override
+    protected void initEvent() {
+
+        mDataBinding.tvSplash.setOnClickListener(v -> {
+
+            startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        });
+    }
+
+    @Override
+    protected void initData(@Nullable Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void initDataBinding() {
+        mDataBinding = createViewDataBinding();
+
+        Log.d("lgj"," mDataBinding = " + mDataBinding);
+//        mDataBinding = createViewDataBinding(R.layout.activity_home);
+//        mDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+
     }
 }

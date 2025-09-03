@@ -16,7 +16,24 @@
 
         <!-- 背景色 -->
         <item name="android:windowBackground">@color/my_background</item>
+
+
+    </style>
+
+    <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@color/common_color_functional_yellow_no2</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textSize">19dp</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
 
+    <style name="PluginAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 如果还想自定义 -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

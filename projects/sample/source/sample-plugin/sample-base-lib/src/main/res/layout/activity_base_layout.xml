@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <!--toolbar-->
+        <androidx.appcompat.widget.Toolbar
+            android:background="@color/color_00000000"
+            android:fitsSystemWindows="true"
+            android:id="@+id/baseToolbar"
+            android:layout_gravity="top"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--无网络提示视图-->
+
+
+        <FrameLayout
+            android:fitsSystemWindows="true"
+            android:id="@+id/networkView"
+            android:layout_gravity="top"
+            android:layout_height="46dp"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/baseToolbar">
+
+        </FrameLayout>
+
+        <!--业务内容区-->
+        <FrameLayout
+            android:id="@+id/flContainer"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/networkView" />
+
+        <!--加载布局/网络异常/空界面布局-->
+        <!--<ViewStub
+            android:id="@+id/stub_layout"
+            android:layout="@layout/loading_base_layout"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/networkView" />
+-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
