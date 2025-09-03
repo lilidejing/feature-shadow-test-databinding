@@ -57,6 +57,13 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
+
 }
 
 dependencies {

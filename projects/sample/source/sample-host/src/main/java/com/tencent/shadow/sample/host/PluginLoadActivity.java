@@ -25,8 +25,11 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.databinding.DataBindingUtil;
+
 import com.tencent.shadow.dynamic.host.EnterCallback;
 import com.tencent.shadow.sample.constant.Constant;
+import com.tencent.shadow.sample.host.databinding.ActivityLoadBinding;
 
 
 public class PluginLoadActivity extends Activity {
@@ -36,11 +39,13 @@ public class PluginLoadActivity extends Activity {
     private Handler mHandler = new Handler();
 
 
+    private ActivityLoadBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_load);
-
+//        setContentView(R.layout.activity_load);
+        // 用 DataBinding 替代 setContentView
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_load);
         mViewGroup = findViewById(R.id.container);
 
         startPlugin();
