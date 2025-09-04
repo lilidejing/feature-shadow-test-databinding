@@ -20,66 +20,32 @@ package com.test;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Button;
 
-import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.R;
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.databinding.LayoutActivitySkip2Binding;
-import com.test.tools.QtCollectionReport;
 
-public class TestActivitySkip3 extends BasesActivity2 {
+public class TestActivitySkip3 extends Activity {
 
     private LayoutActivitySkip2Binding binding;
 
-   /* @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.PluginAppThemeLight);
         super.onCreate(savedInstanceState);
+
+//第一种使用databinding方式：============== 先 setContentView ,再绑定 DataBinding 这种方式会报错：java.lang.RuntimeException: Unable to start activity ComponentInfo{com.tencent.shadow.sample.host/com.tencent.shadow.sample.plugin.runtime.PluginDefaultProxyActivity}: java.lang.RuntimeException: java.lang.IllegalArgumentException: View is not a binding layout. Tag: layout/layout_activity_skip2_0===========================
         setContentView(R.layout.layout_activity_skip2);
         setTitle("Activity跳转接收");
-        Button skip = findViewById(R.id.button);
-        skip.setOnClickListener(v -> {
-//            QtCollectionReport.putClickEvent("GrandSonActivity跳转接收", "插件孙子");
-//
-//            QtCollectionReport.downloadTimeEventReport(
-//                    "abc", 200000, 2000, "成功", ""
-//            );
-        });
-    }*/
+        binding = DataBindingUtil.bind(findViewById(R.id.root));
 
-    @Override
-    public int getLayoutResId() {
-        return R.layout.layout_activity_skip2;
-    }
+//第二种使用databinding方式：=======  用这种方式，获取到的binding为  null  ===========================
+//        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_activity_skip2, null, false);
+//        setContentView(binding.getRoot());
 
-    @Override
-    protected void initView() {
-
-    }
-
-    @Override
-    protected void initEvent() {
-
-        /*binding.button.setOnClickListener(v -> {
-
-
-        });*/
-    }
-
-    @Override
-    protected void initData(@Nullable Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    protected void initDataBinding() {
-        binding = createViewDataBinding();
-
-        Log.d("lgj"," mDataBinding = " + binding);
-//        mDataBinding = createViewDataBinding(R.layout.activity_home);
-//        mDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+//第三种使用databinding方式：======================用下面的方式不会报错,正常加载界面========================
+//        binding = DataBindingUtil.setContentView(this, R.layout.layout_activity_skip2);
 
     }
 
