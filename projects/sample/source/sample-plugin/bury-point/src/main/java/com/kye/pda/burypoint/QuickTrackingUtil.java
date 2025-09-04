@@ -180,54 +180,6 @@ public class QuickTrackingUtil {
 
         this.mApplication = application;
 
-        String customDomain;
-        String apmDomain;
-        String appKey;
-        String appChannel = APP_CHANNEL;
-        if (isDebug) {
-            customDomain = UAT_DOMAIN_CUSTOM;
-            apmDomain = UAT_DOMAIN_APM;
-            appKey = APP_KEY_UAT;
-        } else {
-            customDomain = PRO_DOMAIN_CUSTOM;
-            apmDomain = PRO_DOMAIN_APM;
-            appKey = APP_KEY_PRO;
-        }
-
-        UMConfigure.setLogEnabled(isDebug);
-        // 请传⼊您⾃⼰的收数域名
-        UMConfigure.setCustomDomain(customDomain, null);
-        // 请传⼊您⾃⼰的性能库的收数域名
-        UMEfs.setEfsUploadUrl(apmDomain);
-        // 请传⼊您⾃⼰的稳定性库的收数域名
-        UMCrash.setCrashUploadUrl(apmDomain);
-
-        UMConfigure.preInit(application.getApplicationContext(), appKey, appChannel);
-        UMEfs.preInit(application, appChannel);
-        // 子进程数据埋点，友盟的sdk有问题会出现OOM，现在设为false不用子进程埋点，全部由宿主上报埋点
-        UMConfigure.setProcessEvent(false);
-
-        initAuto(initAllAuto);
-
-        DBPathAdapter customAdapter = new DBPathAdapter() {
-            @Override
-            public String getPrefix4DBPath() {
-                String result = "";
-                result = "ShadowPlugin_";
-                return result;
-            }
-
-            @Override
-            public String getBusinessName4DBPath() {
-                return "";
-            }
-
-            @Override
-            public String getPostfix4DBPath() {
-                return "";
-            }
-        };
-        UMConfigure.setDBPathAdapter(customAdapter);
         mHasPreInit = true;
     }
 
