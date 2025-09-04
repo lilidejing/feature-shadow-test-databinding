@@ -20,15 +20,20 @@ package com.test;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
+import androidx.annotation.Nullable;
+
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.R;
+import com.tencent.shadow.sample.plugin.app.lib.base.plugin.databinding.LayoutActivitySkip2Binding;
 import com.test.tools.QtCollectionReport;
 
-public class TestActivitySkip3 extends Activity {
+public class TestActivitySkip3 extends BasesActivity2 {
 
+    private LayoutActivitySkip2Binding binding;
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.PluginAppThemeLight);
         super.onCreate(savedInstanceState);
@@ -42,6 +47,41 @@ public class TestActivitySkip3 extends Activity {
 //                    "abc", 200000, 2000, "成功", ""
 //            );
         });
+    }*/
+
+    @Override
+    public int getLayoutResId() {
+        return R.layout.layout_activity_skip2;
     }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initEvent() {
+
+        /*binding.button.setOnClickListener(v -> {
+
+
+        });*/
+    }
+
+    @Override
+    protected void initData(@Nullable Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    protected void initDataBinding() {
+        binding = createViewDataBinding();
+
+        Log.d("lgj"," mDataBinding = " + binding);
+//        mDataBinding = createViewDataBinding(R.layout.activity_home);
+//        mDataBinding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+
+    }
+
 
 }

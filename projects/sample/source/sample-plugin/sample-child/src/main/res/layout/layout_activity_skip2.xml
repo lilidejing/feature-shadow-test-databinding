@@ -16,27 +16,24 @@
   ~
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
+        android:id="@+id/root"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_margin="10dp"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+        <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="跳转插件成功了222" />
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
-
-
-
-</LinearLayout>
+</layout>

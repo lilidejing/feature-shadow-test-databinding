@@ -4,7 +4,7 @@
 
     <application android:name="com.test.MyBaseApplication">
 
-        <activity android:name="com.test.TestActivitySkip3" />
+        <activity android:name="com.test.TestActivitySkip3" android:theme="@style/PluginAppTheme" />
     </application>
 </manifest>
 

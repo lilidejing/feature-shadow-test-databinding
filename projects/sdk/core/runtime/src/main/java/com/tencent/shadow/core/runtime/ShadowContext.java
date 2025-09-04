@@ -28,6 +28,7 @@ import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 
@@ -219,11 +220,13 @@ public class ShadowContext extends SubDirContextThemeWrapper {
 
     @Override
     String getSubDirName() {
+        Log.d("lgj","getSubDirName mBusinessName = " + mBusinessName );
         if (mBusinessName == null) {
             return null;
         } else {
             return "ShadowPlugin_" + mBusinessName;
         }
+//        return null;
     }
 
     @Override

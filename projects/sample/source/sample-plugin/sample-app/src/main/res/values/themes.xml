@@ -24,4 +24,15 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:background">#64f56701</item>
     </style>
+
+    <style name="PluginAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 如果还想自定义 -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <!-- 保证有 colorButtonNormal 等属性 -->
+        <item name="colorPrimary">@android:color/holo_blue_light</item>
+        <item name="colorPrimaryDark">@android:color/holo_blue_dark</item>
+        <item name="colorAccent">@android:color/holo_orange_light</item>
+        <item name="colorButtonNormal">@android:color/holo_green_light</item>
+    </style>
 </resources>

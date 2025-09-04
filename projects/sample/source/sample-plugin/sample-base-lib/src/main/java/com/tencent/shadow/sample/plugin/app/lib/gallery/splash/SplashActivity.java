@@ -23,6 +23,8 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.R;
 import com.tencent.shadow.sample.plugin.app.lib.base.databinding.LayoutSplashBinding;
@@ -39,10 +41,11 @@ public class SplashActivity extends BasesActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTheme(androidx.appcompat.R.style.Theme_AppCompat_Light);
-//        setContentView(R.layout.layout_splash);
+        setContentView(R.layout.layout_splash);
       // 然后用 DataBindingUtil.bind 绑定
         // 再绑定 DataBinding
-//        binding = DataBindingUtil.bind(findViewById(android.R.id.content));
+        mDataBinding = DataBindingUtil.bind(findViewById(android.R.id.content));
+//        mDataBinding = DataBindingUtil.bind(findViewById(R.id.layoutSpalsh));
 
 //        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_splash, null, false);
 //
@@ -50,7 +53,17 @@ public class SplashActivity extends BasesActivity {
 
         // 使用 DataBinding 加载布局
 //        binding = DataBindingUtil.setContentView(this, R.layout.layout_splash);
+        mSplashAnimation = new SplashAnimation(this);
+        mSplashAnimation.start();
 
+        mSplashAnimation.setAnimationListener(new ISplashAnimation.AnimationListener() {
+            @Override
+            public void onAnimationEnd() {
+                finish();
+
+                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+            }
+        });
 
     }*/
 

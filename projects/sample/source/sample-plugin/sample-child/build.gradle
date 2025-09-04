@@ -18,6 +18,8 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.tencent.shadow.plugin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions' // 如果用到扩展
 
 android {
     compileSdkVersion project.COMPILE_SDK_VERSION
@@ -57,11 +59,17 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
 //    implementation project(":bury-point")
-//    compileOnly project(":sample-base-lib")
+    compileOnly project(":sample-base-lib")
 //    implementation project(":sample-base-lib")
 //
 //    //Shadow Transform后业务代码会有一部分实际引用runtime中的类

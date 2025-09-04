@@ -1,6 +1,7 @@
-package com.tencent.shadow.sample.plugin.app.lib.gallery.splash
+package com.test
 
 
+import android.app.Activity
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
@@ -19,10 +20,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.viewbinding.ViewBinding
-import com.kye.foundation.component.ext.saveAsUnChecked
+import com.tencent.shadow.sample.plugin.app.lib.base.plugin.R
+import com.test.ext.saveAsUnChecked
 
-import com.tencent.shadow.sample.plugin.app.lib.base.R
-import com.tencent.shadow.sample.plugin.app.lib.gallery.basetoolbar.BaseToolbarDelegate
+import com.test.basetoolbar.BaseToolbarDelegate
 
 
 /**
@@ -37,7 +38,7 @@ import com.tencent.shadow.sample.plugin.app.lib.gallery.basetoolbar.BaseToolbarD
  *  6.事件分发对键盘的处理
  * @date : 2024/10/14 9:25
  */
-abstract class BasesActivity : AppCompatActivity() {
+abstract class BasesActivity2 : Activity() {
 
     companion object {
         /**
@@ -61,23 +62,23 @@ abstract class BasesActivity : AppCompatActivity() {
     /**
      * toolbar
      */
-    private var mBaseToolBar: Toolbar? = null
+    private var mBaseToolBar: FrameLayout? = null
 
 
     /**
      * toolbar代理类
      */
-    private var mBaseToolbarDelegate: BaseToolbarDelegate? = null
+//    private var mBaseToolbarDelegate: BaseToolbarDelegate? = null
 
     private var mBusinessBinding: ViewDataBinding? = null  // 新增：存储业务绑定的实例
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //在onCreate()之前调用  该方法非必须，请在需要时重写
         preCreate()
-        setTheme(R.style.PluginAppTheme)
+
         super.onCreate(savedInstanceState)
         //设置布局
-        val rootView = customContentView(View.inflate(this, R.layout.activity_base_layout, null))
+        val rootView = customContentView(View.inflate(this, R.layout.activity_base_layout2, null))
         setContentView(rootView)
         //初始化沉浸式状态栏
 //        initImmersionBar()
@@ -98,14 +99,14 @@ abstract class BasesActivity : AppCompatActivity() {
     /**
      * 设置内容布局
      */
-   /* private fun customContentView(rootView: View): View {
+    private fun customContentView(rootView: View): View {
         val flContent = rootView.findViewById<FrameLayout>(R.id.flContainer)
         val layoutId = getLayoutResId()
         if (layoutId <= 0) {
             return rootView
         }
         flContent?.apply {
-            val content = View.inflate(this@BasesActivity, layoutId, null)
+            val content = View.inflate(this@BasesActivity2, layoutId, null)
             content?.let {
                 addView(it, 0)
             }
@@ -122,13 +123,13 @@ abstract class BasesActivity : AppCompatActivity() {
             return DataBindingUtil.bind(it)
         }
         return null
-    }*/
+    }
 
 
     /**
      * 设置内容布局（修改：使用DataBindingUtil.inflate以支持绑定，避免bind失败）
      */
-    private fun customContentView(rootView: View): View {
+    /*private fun customContentView(rootView: View): View {
         val flContent = rootView.findViewById<FrameLayout>(R.id.flContainer)
         val layoutId = getLayoutResId()
         if (layoutId <= 0) {
@@ -141,31 +142,29 @@ abstract class BasesActivity : AppCompatActivity() {
                     DataBindingUtil.inflate(layoutInflater, layoutId, this, false)
                 addView(binding.root)  // 添加根视图到容器
                 mBusinessBinding = binding  // 存储绑定实例
-                binding.lifecycleOwner = this@BasesActivity  // 可选：设置lifecycle以支持LiveData
             } catch (e: Exception) {
                 // 如果不是绑定布局（e.g., 无<layout>根），fallback到普通
                 Log.e("lgj","DataBinding inflate failed, fallback to normal inflate: ${e.message}")
-                val content = View.inflate(this@BasesActivity, layoutId, null)
+                val content = View.inflate(this@BasesActivity2, layoutId, null)
                 content?.let {
                     addView(it, 0)
                 }
             }
         }
         return rootView
-    }
-
+    }*/
     /**
      * 若使用ViewDataBinding，想要获取业务端对应的ViewDataBinding，请调用该方法生成
      * （修改：直接返回存储的绑定实例，无需后续bind孩子视图，避免"not a binding layout"）
      */
-    fun <T : ViewDataBinding> createViewDataBinding(): T? {
+   /* fun <T : ViewDataBinding> createViewDataBinding(): T? {
         mBusinessBinding?.let {
             return it as? T  // 安全cast到泛型T（子类指定，如ActivityHomeBinding）
         }
         // 如果未存储（e.g., 非绑定布局），返回null或log警告
         Log.w("lgj","No DataBinding instance available. Ensure business layout is a binding layout.")
         return null
-    }
+    }*/
 
 
     /**
@@ -186,7 +185,7 @@ abstract class BasesActivity : AppCompatActivity() {
      *  该方法非必须，请在需要时重写
      */
     protected open fun preCreate() {
-
+        setTheme(R.style.PluginAppTheme)
     }
 
     /**
@@ -247,7 +246,7 @@ abstract class BasesActivity : AppCompatActivity() {
 
     // 新建状态栏颜色
     protected open fun newStatusBarColor(): Int {
-        return R.color.common_color_functional_gray_no1
+        return R.color.primary_color_purple
     }
 
     // 是否设置状态栏颜色
@@ -264,17 +263,17 @@ abstract class BasesActivity : AppCompatActivity() {
      * 初始化toolbar
      */
     private fun initToolBar() {
-        mBaseToolBar = findViewById(R.id.baseToolbar)
-        mBaseToolbarDelegate = BaseToolbarDelegate(this, mBaseToolBar)
-        mBaseToolbarDelegate?.setBackListener {
-            finish()
-        }
+        mBaseToolBar = findViewById(R.id.baseToolbar2)
+//        mBaseToolbarDelegate = BaseToolbarDelegate(this, mBaseToolBar)
+//        mBaseToolbarDelegate?.setBackListener {
+//            finish()
+//        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        mBaseToolbarDelegate?.let {
-            return it.onCreateOptionsMenu(menuInflater, menu)
-        }
+//        mBaseToolbarDelegate?.let {
+//            return it.onCreateOptionsMenu(menuInflater, menu)
+//        }
         return false
     }
 
@@ -282,7 +281,7 @@ abstract class BasesActivity : AppCompatActivity() {
      * 获取toolbar处理的代理类
      */
     fun getBaseToolbarDelegate(): BaseToolbarDelegate? {
-        return mBaseToolbarDelegate
+        return null
     }
 
     /**
@@ -290,7 +289,7 @@ abstract class BasesActivity : AppCompatActivity() {
      */
     fun setCustomToolbar(view: View?) {
         view?.let {
-            mBaseToolbarDelegate?.removeAllChild()
+//            mBaseToolbarDelegate?.removeAllChild()
             //第一次设置自定义View
             it.layoutParams = ConstraintLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,

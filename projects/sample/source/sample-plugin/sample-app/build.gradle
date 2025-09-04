@@ -18,6 +18,8 @@ buildscript {
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.tencent.shadow.plugin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions' // 如果用到扩展
 
 android {
     compileSdkVersion project.COMPILE_SDK_VERSION
@@ -123,7 +125,7 @@ shadow {
                         buildTask = ':sample-child:assemblePluginDebug'
                         apkPath = 'projects/sample/source/sample-plugin/sample-child/build/outputs/apk/plugin/debug/sample-child-plugin-debug.apk'
                         hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-
+                        dependsOn = ['sample-base'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
                     }
 
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-plugin-debug.apk 打进zip包中了
