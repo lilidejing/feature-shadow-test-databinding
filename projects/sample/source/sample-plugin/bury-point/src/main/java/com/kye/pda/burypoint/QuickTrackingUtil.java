@@ -29,31 +29,31 @@ public class QuickTrackingUtil {
     /**
      * 对应app key
      */
-    private static final String APP_KEY_UAT = "bv5g2g6fxuuebaax80ael8so";
+    private static final String APP_KEY_UAT = "";
     /**
      * 对应生产app key
      */
-    private static final String APP_KEY_PRO = "wkfyvnnhvj3not8lmw2hikbv";
+    private static final String APP_KEY_PRO = "";
     /**
      * 对应渠道
      */
-    private static final String APP_CHANNEL = "KYXG";
+    private static final String APP_CHANNEL = "";
     /**
      * uat QT收数域名
      */
-    private static final String UAT_DOMAIN_CUSTOM = "https://kye-log-sdk-uat.ky-express.com";
+    private static final String UAT_DOMAIN_CUSTOM = "";
     /**
      * uat APM收数域名
      */
-    private static final String UAT_DOMAIN_APM = "https://quickaplus-api-uat.ky-tech.com.cn:1443";
+    private static final String UAT_DOMAIN_APM = "";
     /**
      * QT收数域名
      */
-    private static final String PRO_DOMAIN_CUSTOM = "https://kye-log-sdk.ky-express.com";
+    private static final String PRO_DOMAIN_CUSTOM = "";
     /**
      * APM收数域名
      */
-    private static final String PRO_DOMAIN_APM = "https://quickaplus-api.ky-tech.com.cn";
+    private static final String PRO_DOMAIN_APM = "";
     private final Map<String, Object> mEventMap = new HashMap<>();
     /**
      * 上下文，和用来判断是否初始化
@@ -64,19 +64,19 @@ public class QuickTrackingUtil {
     /**
      * H5 APM(新平台) DEV
      */
-    private static final String UMAPPKEY_H5_APM_DEV = "dismfkeyjuk87ell4809hf66";
+    private static final String UMAPPKEY_H5_APM_DEV = "";
     /**
      * H5 APM(新平台) PRO
      */
-    private static final String UMAPPKEY_H5_APM_PRO = "58hndlcvm5a0j0rjqop0l0qc";
+    private static final String UMAPPKEY_H5_APM_PRO = "";
     /**
      * APM收数域名 DEV
      */
-    private static final String UM_DOMAIN_APM_DEV = "quickaplus-api-uat.ky-tech.com.cn:1443";
+    private static final String UM_DOMAIN_APM_DEV = "";
     /**
      * APM收数域名 PRO
      */
-    private static final String UM_DOMAIN_APM_PRO = "quickaplus-api.ky-tech.com.cn";
+    private static final String UM_DOMAIN_APM_PRO = "";
 
     /**
      * 配置是否可以上报埋点
