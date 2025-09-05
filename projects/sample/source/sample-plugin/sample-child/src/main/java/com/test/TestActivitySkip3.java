@@ -44,7 +44,7 @@ public class TestActivitySkip3 extends Activity {
 //        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_activity_skip2, null, false);
 //        setContentView(binding.getRoot());
 
-//第三种使用databinding方式：======================用下面的方式不会报错,正常加载界面========================
+//第三种使用databinding方式：======================用下面的方式不会报错,正常加载界面==。但是获取到的binding为  null======================
 //        binding = DataBindingUtil.setContentView(this, R.layout.layout_activity_skip2);
 
     }
