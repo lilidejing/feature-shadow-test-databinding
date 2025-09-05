@@ -26,13 +26,13 @@ import android.view.View;
 import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
-import com.tencent.shadow.sample.plugin.app.lib.databinding.LayoutActivityLifecycleBinding;
+//import com.tencent.shadow.sample.plugin.app.lib.databinding.LayoutActivityLifecycleBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCase;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
 
 public class TestActivityOnCreate extends Activity {
 
-    private LayoutActivityLifecycleBinding binding;
+//    private LayoutActivityLifecycleBinding binding;
 
     public static class Case extends UseCase {
         @Override
@@ -57,7 +57,7 @@ public class TestActivityOnCreate extends Activity {
         // 先 setContentView
         setContentView(R.layout.layout_activity_lifecycle);
         // 再绑定 DataBinding
-        binding = DataBindingUtil.bind(findViewById(android.R.id.content));
+//        binding = DataBindingUtil.bind(findViewById(android.R.id.content));
         // 然后用 DataBindingUtil.bind 绑定
 //        binding = DataBindingUtil.bind(findViewById(R.id.root));
 
