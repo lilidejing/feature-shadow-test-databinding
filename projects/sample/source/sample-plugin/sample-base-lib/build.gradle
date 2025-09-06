@@ -30,7 +30,7 @@ android {
 
     buildFeatures {
         buildConfig = true
-        viewBinding = false
+        viewBinding = true
         dataBinding = false
     }
 

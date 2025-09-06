@@ -18,6 +18,7 @@
 
 package com.tencent.shadow.core.loader.blocs
 
+import android.util.Log
 import com.tencent.shadow.core.common.InstalledApk
 import com.tencent.shadow.core.common.Logger
 import com.tencent.shadow.core.load_parameters.LoadParameters
@@ -52,9 +53,17 @@ object LoadApkBloc {
         //Logger类一定打包在宿主中，所在的classLoader即为加载宿主的classLoader
         val hostClassLoader: ClassLoader = Logger::class.java.classLoader!!
         val hostParentClassLoader = hostClassLoader.parent
+
+        Log.d("LoadApkBloc",
+            "PluginClassLoader Self-First loading for  odexDir: $odexDir \n selfDexPath==${installedApk.apkFilePath}"
+        )
+       Log.d("LoadApkBloc",
+            "PluginClassLoader Self-First loading for  dependsOn: ${dependsOn?.size}}"
+        )
         if (dependsOn == null || dependsOn.isEmpty()) {
             return PluginClassLoader(
                 apk.absolutePath,
+                installedApk.apkFilePath, // <<<<<<< 2. 傳入自己的 APK 路徑
                 odexDir,
                 installedApk.libraryPath,
                 hostClassLoader, //宿主的类加载器
@@ -69,6 +78,7 @@ object LoadApkBloc {
             } else {
                 return PluginClassLoader(
                     apk.absolutePath,
+                    installedApk.apkFilePath, // <<<<<<< 2. 傳入自己的 APK 路徑
                     odexDir,
                     installedApk.libraryPath,
                     pluginParts.classLoader, //使用所依赖的ClassLoader作为父类加载器
@@ -89,6 +99,7 @@ object LoadApkBloc {
                 CombineClassLoader(dependsOnClassLoaders, hostParentClassLoader)
             return PluginClassLoader(
                 apk.absolutePath,
+                installedApk.apkFilePath, // <<<<<<< 2. 傳入自己的 APK 路徑
                 odexDir,
                 installedApk.libraryPath,
                 combineClassLoader,

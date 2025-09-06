@@ -25,6 +25,7 @@ import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.R;
 import com.tencent.shadow.sample.plugin.app.lib.base.plugin.databinding.LayoutActivitySkip2Binding;
+import com.test.tools.LoaderUtils;
 
 public class TestActivitySkip3 extends Activity {
 
@@ -38,7 +39,9 @@ public class TestActivitySkip3 extends Activity {
 //第一种使用databinding方式：============== 先 setContentView ,再绑定 DataBinding 这种方式会报错：java.lang.RuntimeException: Unable to start activity ComponentInfo{com.tencent.shadow.sample.host/com.tencent.shadow.sample.plugin.runtime.PluginDefaultProxyActivity}: java.lang.RuntimeException: java.lang.IllegalArgumentException: View is not a binding layout. Tag: layout/layout_activity_skip2_0===========================
         setContentView(R.layout.layout_activity_skip2);
         setTitle("Activity跳转接收");
+        LoaderUtils.INSTANCE.printLog("TestActivitySkip3 onCreate");
         binding = DataBindingUtil.bind(findViewById(R.id.root));
+
 
 //第二种使用databinding方式：=======  用这种方式，获取到的binding为  null  ===========================
 //        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_activity_skip2, null, false);

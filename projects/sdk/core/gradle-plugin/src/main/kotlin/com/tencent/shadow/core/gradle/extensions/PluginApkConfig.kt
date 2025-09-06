@@ -34,6 +34,11 @@ open class PluginApkConfig {
     var dependsOn: Array<String> = emptyArray()
     var hostWhiteList: Array<String> = emptyArray()
 
+    /**
+     * 优先加载自己插件的类名列表
+     */
+    var loadSelfFirstList: Array<String> = emptyArray()
+
     constructor(name: String) {
         this.name = name
     }

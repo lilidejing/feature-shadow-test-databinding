@@ -24,7 +24,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+//import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.R;
 //import com.tencent.shadow.sample.plugin.app.lib.base.databinding.LayoutSplashBinding;

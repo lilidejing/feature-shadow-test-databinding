@@ -105,6 +105,13 @@ open class PackagePluginExtension {
                 }
                 pluginObj["hostWhiteList"] = hostWhiteListJson
             }
+            if (i.loadSelfFirstList.isNotEmpty()) {
+                val loadSelfFirstListJson = JSONArray()
+                for (k in i.loadSelfFirstList) {
+                    loadSelfFirstListJson.add(k)
+                }
+                pluginObj["loadSelfFirstList"] = loadSelfFirstListJson
+            }
             jsonArr.add(pluginObj)
         }
         json["plugins"] = jsonArr

@@ -16,9 +16,9 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
-import androidx.viewbinding.ViewBinding
+//import androidx.databinding.DataBindingUtil
+//import androidx.databinding.ViewDataBinding
+//import androidx.viewbinding.ViewBinding
 import com.kye.foundation.component.ext.saveAsUnChecked
 
 import com.tencent.shadow.sample.plugin.app.lib.base.R
@@ -69,7 +69,7 @@ abstract class BasesActivity : AppCompatActivity() {
      */
     private var mBaseToolbarDelegate: BaseToolbarDelegate? = null
 
-    private var mBusinessBinding: ViewDataBinding? = null  // 新增：存储业务绑定的实例
+//    private var mBusinessBinding: ViewDataBinding? = null  // 新增：存储业务绑定的实例
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //在onCreate()之前调用  该方法非必须，请在需要时重写
@@ -134,7 +134,7 @@ abstract class BasesActivity : AppCompatActivity() {
         if (layoutId <= 0) {
             return rootView
         }
-        flContent?.apply {
+        /*flContent?.apply {
             try {
                 // 尝试用DataBindingUtil.inflate（假设业务布局是绑定布局）
                 val binding: ViewDataBinding =
@@ -150,7 +150,7 @@ abstract class BasesActivity : AppCompatActivity() {
                     addView(it, 0)
                 }
             }
-        }
+        }*/
         return rootView
     }
 
@@ -158,7 +158,7 @@ abstract class BasesActivity : AppCompatActivity() {
      * 若使用ViewDataBinding，想要获取业务端对应的ViewDataBinding，请调用该方法生成
      * （修改：直接返回存储的绑定实例，无需后续bind孩子视图，避免"not a binding layout"）
      */
-    fun <T : ViewDataBinding> createViewDataBinding(): T? {
+    /*fun <T : ViewDataBinding> createViewDataBinding(): T? {
         mBusinessBinding?.let {
             return it as? T  // 安全cast到泛型T（子类指定，如ActivityHomeBinding）
         }
@@ -168,9 +168,9 @@ abstract class BasesActivity : AppCompatActivity() {
     }
 
 
-    /**
+    *//**
      * 若使用ViewBinding，想要获取业务端对应的ViewBinding，请调用该方法生成
-     */
+     *//*
     fun <T : ViewBinding> createViewBinding(vbClass: Class<T>): T? {
         val method = vbClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
         val mBinding = method.invoke(this, layoutInflater)
@@ -178,7 +178,7 @@ abstract class BasesActivity : AppCompatActivity() {
             return mBinding.saveAsUnChecked()
         }
         return null
-    }
+    }*/
 
 
     /**

@@ -41,6 +41,7 @@ import java.io.File
  */
 class PluginClassLoader(
     dexPath: String,
+    private val selfDexPath: String, // <<<<<<< 1. 在這裡新增一個參數
     optimizedDirectory: File?,
     librarySearchPath: String?,
     parent: ClassLoader,
@@ -74,13 +75,75 @@ class PluginClassLoader(
     @Throws(ClassNotFoundException::class)
     override fun loadClass(className: String, resolve: Boolean): Class<*> {
         var clazz: Class<*>? = findLoadedClass(className)
+        Log.d("PluginClassLoader",
+            "Self-First loading for DataBinding class: $className  clazz: $clazz  selfDexPath==$selfDexPath \n specialClassLoader==$specialClassLoader \n 当前线程==${Thread.currentThread()} \n this==$this"
+        )
+
+        if (className.startsWith("androidx.databinding.DataBindingUtil")){
+            // 打印日志
+            Log.d("PluginClassLoader", "loadClass called: $className, resolve=$resolve")
+
+            // 打印调用栈
+            val stackTrace = Throwable().stackTrace
+            val formattedStack = stackTrace.joinToString("\n") { element ->
+                "    at ${element.className}.${element.methodName}(${element.fileName}:${element.lineNumber})"
+            }
+            Log.d("PluginClassLoader", "Call stack:\n$formattedStack")
+        }
 
         if (clazz == null) {
             //specialClassLoader 为null 表示该classLoader依赖了其他的插件classLoader，需要遵循双亲委派
             if (specialClassLoader == null) {
+                // ======================== START: 最終修正版 ========================
+                // 對於 DataBinding 相關的核心類別，我們採用「自己優先」策略
+                // 這是為了防止被依賴的插件 B 的同名類別污染
+                if (className.startsWith("androidx.databinding.") || className.contains("DataBinderMapperImpl")) {
+                    Log.d("PluginClassLoader",
+                        "Self-First loading for DataBinding class: $className  $this"
+                    )
+                    var suppressed: ClassNotFoundException? = null
+                    try {
+                        // 1. 優先在自己的 dex 中尋找 (findClass)
+                        Log.d("PluginClassLoader",
+                            "Self-First loading for DataBinding 我要开始搞了 class: $className  selfDexPath==$selfDexPath  =="
+                        )
+                        clazz = findClass(className)!!
+                        Log.d("PluginClassLoader",
+                            "Self-First loading for DataBinding 搞完了 clazz: $clazz  selfDexPath==$selfDexPath  =="
+                        )
+                    } catch (e: ClassNotFoundException) {
+                        suppressed = e
+                        Log.d("PluginClassLoader", "Found 失败 $className in self plugin APK. clazz==$clazz")
+                    }
+
+                    if (clazz == null) {
+                        try {
+                            // 2. 如果自己沒有（例如它是一個純粹的 runtime 基礎類別），再退回到正常的依賴插件搜尋邏輯
+                            clazz = super.loadClass(className, resolve)
+                            Log.d("PluginClassLoader", "Found 成功 $className in super plugin APK. clazz==$clazz")
+                        } catch (e: ClassNotFoundException) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && suppressed != null) {
+                                e.addSuppressed(suppressed)
+                            }
+                            Log.d("PluginClassLoader", "Found 失败 $className in super plugin APK. clazz==$clazz")
+                            throw e
+                        }
+                    }
+                    return clazz!!
+                }
+
+                // ========================= END: 最終修正版 =========================
+                Log.d("PluginClassLoader",
+                    "Self-First loading for DataBinding class: $className  specialClassLoader 为null 表示该classLoader依赖了其他的插件classLoader，需要遵循双亲委派 start  \n" +
+                            " 当前线程==${Thread.currentThread()} \n this==$this"
+                )
                 // dependsOn>= 1 表示依赖了别的插件的插件，需要遵循双亲委派
                 val classLoader = super.loadClass(className, resolve)
                 Log.e("LCF", "classLoader111 = " + classLoader.toString())
+                Log.d("PluginClassLoader",
+                    "Self-First loading for DataBinding class: $className  specialClassLoader 为null 表示该classLoader依赖了其他的插件classLoader，需要遵循双亲委派 end \n classLoader==$classLoader  \n" +
+                            " 当前线程==${Thread.currentThread()} \n this==$this"
+                )
                 return classLoader;
             }
 
