@@ -23,7 +23,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.databinding.DataBindingUtil;
+//import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
 //import com.tencent.shadow.sample.plugin.app.lib.databinding.LayoutActivityLifecycleBinding;
