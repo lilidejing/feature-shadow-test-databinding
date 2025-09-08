@@ -20,7 +20,7 @@
         <activity android:name="com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity" />
 
 
-        <provider
+       <!-- <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.general_cases.fileprovider"
             android:exported="false"
@@ -28,7 +28,7 @@
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/filepaths" />
-        </provider>
+        </provider>-->
 
         <activity
             android:name="com.tencent.shadow.sample.plugin.app.lib.gallery.AppCompatTestActivity"

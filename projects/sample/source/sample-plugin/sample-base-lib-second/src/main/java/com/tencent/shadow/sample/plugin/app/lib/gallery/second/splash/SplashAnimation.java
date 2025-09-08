@@ -21,7 +21,8 @@ package com.tencent.shadow.sample.plugin.app.lib.gallery.second.splash;
 import android.content.Context;
 import android.os.Handler;
 
-import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.second.util.ToastUtil;
+
 
 public class SplashAnimation implements ISplashAnimation {
 

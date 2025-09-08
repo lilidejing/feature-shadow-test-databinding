@@ -455,6 +455,7 @@ public class QuickTrackingUtil {
      * @param key 键
      */
     public void onEventObject(String key) {
+        Log.d("QuickTrackingUtil", "onEventObject: key=" + key + ", mEventMap=" + mEventMap);
         if (mApplication == null) {
             return;
         }

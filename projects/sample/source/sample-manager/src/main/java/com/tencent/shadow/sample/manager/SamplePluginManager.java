@@ -20,6 +20,7 @@ package com.tencent.shadow.sample.manager;
 
 import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_ANOTHER_APP;
 import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_BASE;
+import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_BASE_SECOND;
 import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_MAIN_APP;
 import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_SAMPLE_CHAID;
 import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_SAMPLE_GRANDSON;
@@ -66,6 +67,8 @@ public class SamplePluginManager extends FastPluginManager {
         if (PART_KEY_PLUGIN_MAIN_APP.equals(partKey)) {
             return "com.tencent.shadow.sample.host.PluginProcessPPS";
         } else if (PART_KEY_PLUGIN_BASE.equals(partKey)) {
+            return "com.tencent.shadow.sample.host.PluginProcessPPS";
+        }else if (PART_KEY_PLUGIN_BASE_SECOND.equals(partKey)) {
             return "com.tencent.shadow.sample.host.PluginProcessPPS";
         } else if (PART_KEY_PLUGIN_SAMPLE_CHAID.equals(partKey)) {
             return "com.tencent.shadow.sample.host.PluginProcessPPS";
@@ -129,12 +132,14 @@ public class SamplePluginManager extends FastPluginManager {
 
                     // 2加载插件(包括: 绑定PPS服务，loadRuntime，loadPluginLoader，loadPlugin)
                     //被依赖的插件在加载插件的时候要优先加载
+                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_BASE_SECOND);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_BASE);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_CHAID);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_MAIN_APP);
 //                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_GRANDSON);
 
                     // 3拉起插件application及入口activity
+                    callApplicationOnCreate(PART_KEY_PLUGIN_BASE_SECOND);
                     callApplicationOnCreate(PART_KEY_PLUGIN_BASE);
                     callApplicationOnCreate(PART_KEY_PLUGIN_SAMPLE_CHAID);
                     callApplicationOnCreate(PART_KEY_PLUGIN_MAIN_APP);

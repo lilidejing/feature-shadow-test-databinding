@@ -26,6 +26,7 @@ final public class Constant {
     public static final String PART_KEY_PLUGIN_MAIN_APP = "sample-plugin-app";
     public static final String PART_KEY_PLUGIN_ANOTHER_APP = "sample-plugin-app2";
     public static final String PART_KEY_PLUGIN_BASE = "sample-base";
+    public static final String PART_KEY_PLUGIN_BASE_SECOND = "sample-base-second";
     public static final String PART_KEY_PLUGIN_SAMPLE_CHAID = "sample-child";
     public static final String PART_KEY_PLUGIN_SAMPLE_GRANDSON = "sample-grandson";
 

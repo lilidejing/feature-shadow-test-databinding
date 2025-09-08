@@ -35,7 +35,7 @@ import androidx.annotation.Nullable;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.second.R;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.second.cases.entity.UseCase;
-import com.tencent.shadow.sample.plugin.app.lib.gallery.util.PluginChecker;
+import com.tencent.shadow.sample.plugin.app.lib.gallery.second.util.PluginChecker;
 
 public class UseCaseSummaryFragment extends Fragment {
 

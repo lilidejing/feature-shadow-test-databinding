@@ -29,6 +29,7 @@ import com.tencent.shadow.sample.plugin.app.lib.R;
 //import com.tencent.shadow.sample.plugin.app.lib.databinding.LayoutActivityLifecycleBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCase;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
+import com.tencent.shadow.sample.plugin.app.lib.tools.QtCollectionReport;
 
 public class TestActivityOnCreate extends Activity {
 
@@ -86,6 +87,18 @@ public class TestActivityOnCreate extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClassName(TestActivityOnCreate.this, "com.test.TestActivitySkip3");
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.tv4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QtCollectionReport.downloadTimeEventReport(
+                        "abc", 200000, 2000, "成功", ""
+                );
+
+                Intent intent = new Intent();
+                intent.setClassName(TestActivityOnCreate.this, "com.tencent.shadow.sample.plugin.app.lib.gallery.second.MainActivity");
                 startActivity(intent);
             }
         });

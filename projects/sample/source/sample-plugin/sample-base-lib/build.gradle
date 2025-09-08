@@ -53,5 +53,5 @@ dependencies {
 
 
 
-    api project(":bury-point")
+//    api project(":bury-point")
 }

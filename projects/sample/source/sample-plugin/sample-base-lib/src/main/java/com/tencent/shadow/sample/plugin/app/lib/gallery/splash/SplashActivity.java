@@ -18,6 +18,7 @@
 
 package com.tencent.shadow.sample.plugin.app.lib.gallery.splash;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,7 +33,7 @@ import com.tencent.shadow.sample.plugin.app.lib.base.R;
 import com.tencent.shadow.sample.plugin.app.lib.base.databinding.LayoutSplashBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.MainActivity;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends Activity {
 
     private SplashAnimation mSplashAnimation;
 

@@ -71,5 +71,17 @@
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
+    <TextView
+        android:background="#ffcc"
+        android:gravity="center"
+        android:id="@+id/tv4"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:tag="tv_msg"
+        android:text="点我跳转到 sample-base-second 插件 的sample-base-lib-second模块"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
 
 </LinearLayout>

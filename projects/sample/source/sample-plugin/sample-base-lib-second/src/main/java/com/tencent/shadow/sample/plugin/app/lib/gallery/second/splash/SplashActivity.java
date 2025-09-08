@@ -23,10 +23,10 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
+//import androidx.databinding.DataBindingUtil;
 
 import com.tencent.shadow.sample.plugin.app.lib.base.second.R;
-import com.tencent.shadow.sample.plugin.app.lib.base.second.databinding.LayoutSplashBinding;
+//import com.tencent.shadow.sample.plugin.app.lib.base.second.databinding.LayoutSplashBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.second.MainActivity;
 //import androidx.databinding.DataBindingUtil;
 
@@ -37,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private SplashAnimation mSplashAnimation;
 
-    private LayoutSplashBinding mDataBinding; // 自动生成的 binding 类
+//    private LayoutSplashBinding mDataBinding; // 自动生成的 binding 类
 
 
     @Override
@@ -48,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
       // 然后用 DataBindingUtil.bind 绑定
         // 再绑定 DataBinding
 //        mDataBinding = DataBindingUtil.bind(findViewById(android.R.id.content));
-        mDataBinding = DataBindingUtil.bind(findViewById(R.id.layoutSpalsh));
+//        mDataBinding = DataBindingUtil.bind(findViewById(R.id.layoutSpalsh));
 
 //        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_splash, null, false);
 //
