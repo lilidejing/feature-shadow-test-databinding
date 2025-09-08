@@ -16,24 +16,28 @@
   ~
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@android:color/white"
-    android:id="@+id/root"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical">
+<layout>
 
-    <TextView
-        android:background="#ffcc"
-        android:gravity="center"
-        android:id="@+id/tv2"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@android:color/white"
+        android:id="@+id/root"
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:tag="tv_msg"
-        android:text="我是公共业务插件页面, 点我点我"
-        android:textColor="@android:color/black"
-        android:textSize="20sp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:background="#ffcc"
+            android:gravity="center"
+            android:id="@+id/tv2"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_width="match_parent"
+            android:tag="tv_msg"
+            android:text="我是公共业务插件页面, 点我点我"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
 
-</LinearLayout>
+    </LinearLayout>
+</layout>

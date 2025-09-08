@@ -19,7 +19,9 @@
 package com.test;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.databinding.DataBindingUtil;
 
@@ -42,6 +44,15 @@ public class TestActivitySkip3 extends Activity {
         LoaderUtils.INSTANCE.printLog("TestActivitySkip3 onCreate");
         binding = DataBindingUtil.bind(findViewById(R.id.root));
 
+        binding.texttext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent();
+                intent.setClassName(TestActivitySkip3.this,"com.tencent.test.second.MyTestActivity");
+                startActivity(intent);
+            }
+        });
 
 //第二种使用databinding方式：=======  用这种方式，获取到的binding为  null  ===========================
 //        binding = DataBindingUtil.inflate(getLayoutInflater(), R.layout.layout_activity_skip2, null, false);

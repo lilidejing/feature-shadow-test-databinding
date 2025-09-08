@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 
-import com.tencent.shadow.sample.plugin.app.lib.base.second.R;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
+
+import com.tencent.shadow.sample.plugin.app.lib.base.plugin.second.R;
+import com.tencent.shadow.sample.plugin.app.lib.base.plugin.second.databinding.LayoutActivityTestSecondBinding;
 
 
 /**
@@ -16,10 +20,16 @@ import com.tencent.shadow.sample.plugin.app.lib.base.second.R;
  */
 public class MyTestActivity extends Activity {
 
+
+    private LayoutActivityTestSecondBinding binding;
+
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_test_second);
+        binding = DataBindingUtil.bind(findViewById(R.id.root));
+
         findViewById(R.id.tv2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
