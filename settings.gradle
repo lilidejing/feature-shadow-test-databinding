@@ -59,6 +59,8 @@ def includeSample() {
             'slidingmenu',
             'sample-base-lib',
             'sample-base',
+            'sample-base-lib-second',
+            'sample-base-second',
             'sample-app',
             'sample-child',
 //            'sample-grandson',
@@ -74,6 +76,8 @@ def includeSample() {
     project(':slidingmenu').projectDir = file('projects/sample/source/sample-plugin/third-party/slidingmenu')
     project(':sample-base-lib').projectDir = file('projects/sample/source/sample-plugin/sample-base-lib')
     project(':sample-base').projectDir = file('projects/sample/source/sample-plugin/sample-base')
+    project(':sample-base-lib-second').projectDir = file('projects/sample/source/sample-plugin/sample-base-lib-second')
+    project(':sample-base-second').projectDir = file('projects/sample/source/sample-plugin/sample-base-second')
     project(':sample-app').projectDir = file('projects/sample/source/sample-plugin/sample-app')
     project(':sample-child').projectDir = file('projects/sample/source/sample-plugin/sample-child')
 //    project(':sample-grandson').projectDir = file('projects/sample/source/sample-plugin/sample-grandson')

@@ -1,4 +1,4 @@
-package com.kye.foundation.component.ext
+package com.tencent.shadow.sample.plugin.app.lib.gallery.second.ext
 
 
 inline fun <reified T> Any.saveAs() : T{

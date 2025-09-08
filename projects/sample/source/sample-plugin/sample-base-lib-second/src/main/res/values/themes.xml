@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CustomActivityTheme" parent="@android:style/Theme.NoTitleBar"></style>
+
+
+    <!-- 自定义主题，继承 Material3 -->
+    <style name="Theme.MyApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- 全局主色 -->
+        <item name="colorPrimary">@color/my_primary</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- 次要颜色 -->
+        <item name="colorSecondary">@color/my_secondary</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- 背景色 -->
+        <item name="android:windowBackground">@color/my_background</item>
+
+
+    </style>
+
+    <style name="ToolbarStyle" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">@color/common_color_functional_yellow_no2</item>
+        <item name="actionMenuTextAppearance">@style/MenuTextStyle</item>
+    </style>
+
+    <style name="MenuTextStyle">
+        <item name="android:textSize">19dp</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="PluginAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 如果还想自定义 -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

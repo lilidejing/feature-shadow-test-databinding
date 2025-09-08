@@ -1,11 +1,9 @@
-package com.tencent.shadow.sample.plugin.app.lib.gallery.splash
+package com.tencent.shadow.sample.plugin.app.lib.gallery.second.splash
 
 
 import android.app.Dialog
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MotionEvent
 import android.view.View
@@ -19,10 +17,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 //import androidx.databinding.DataBindingUtil
 //import androidx.databinding.ViewDataBinding
 //import androidx.viewbinding.ViewBinding
-import com.kye.foundation.component.ext.saveAsUnChecked
 
-import com.tencent.shadow.sample.plugin.app.lib.base.R
-import com.tencent.shadow.sample.plugin.app.lib.gallery.basetoolbar.BaseToolbarDelegate
+import com.tencent.shadow.sample.plugin.app.lib.base.second.R
+import com.tencent.shadow.sample.plugin.app.lib.gallery.second.basetoolbar.BaseToolbarDelegate
 
 
 /**

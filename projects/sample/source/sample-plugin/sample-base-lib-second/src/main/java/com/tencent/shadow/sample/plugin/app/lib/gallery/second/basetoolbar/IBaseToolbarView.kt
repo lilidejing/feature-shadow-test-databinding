@@ -1,4 +1,4 @@
-package com.kye.foundation.component.basetoolbar
+package com.tencent.shadow.sample.plugin.app.lib.gallery.second.basetoolbar
 
 import android.content.Context
 import android.view.Menu

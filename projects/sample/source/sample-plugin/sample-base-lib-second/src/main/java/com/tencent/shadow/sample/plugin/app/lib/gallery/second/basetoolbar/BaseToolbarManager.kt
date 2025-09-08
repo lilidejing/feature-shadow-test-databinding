@@ -1,4 +1,4 @@
-package com.tencent.shadow.sample.plugin.app.lib.gallery.basetoolbar
+package com.tencent.shadow.sample.plugin.app.lib.gallery.second.basetoolbar
 
 
 import android.content.Context
@@ -10,10 +10,8 @@ import android.view.View
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.kye.foundation.component.basetoolbar.IBaseToolbarView
-import com.tencent.shadow.sample.plugin.app.lib.base.R
+import com.tencent.shadow.sample.plugin.app.lib.base.second.R
 import java.lang.reflect.Field
-import java.util.logging.Logger
 
 /**
  * @author MEIJING

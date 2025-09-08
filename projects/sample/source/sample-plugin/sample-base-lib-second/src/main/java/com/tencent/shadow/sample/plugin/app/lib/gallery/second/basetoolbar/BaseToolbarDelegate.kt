@@ -1,4 +1,4 @@
-package com.tencent.shadow.sample.plugin.app.lib.gallery.basetoolbar
+package com.tencent.shadow.sample.plugin.app.lib.gallery.second.basetoolbar
 
 
 import android.content.Context
@@ -7,7 +7,6 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.kye.foundation.component.basetoolbar.IBaseToolbarView
 
 /**
  * @author MEIJING
