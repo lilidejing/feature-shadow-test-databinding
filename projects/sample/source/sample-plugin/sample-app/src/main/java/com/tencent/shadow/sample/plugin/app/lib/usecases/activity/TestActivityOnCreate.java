@@ -25,13 +25,15 @@ import android.view.View;
 
 //import androidx.databinding.DataBindingUtil;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.tencent.shadow.sample.plugin.app.lib.R;
 //import com.tencent.shadow.sample.plugin.app.lib.databinding.LayoutActivityLifecycleBinding;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCase;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.util.ToastUtil;
 import com.tencent.shadow.sample.plugin.app.lib.tools.QtCollectionReport;
 
-public class TestActivityOnCreate extends Activity {
+public class TestActivityOnCreate extends AppCompatActivity {
 
 //    private LayoutActivityLifecycleBinding binding;
 
@@ -54,6 +56,7 @@ public class TestActivityOnCreate extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        setTheme(R.style.PluginAppTheme);
         super.onCreate(savedInstanceState);
         // 先 setContentView
         setContentView(R.layout.layout_activity_lifecycle);

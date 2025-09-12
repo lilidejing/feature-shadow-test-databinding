@@ -75,8 +75,8 @@ dependencies {
 
     pluginCompileOnly project(":sample-base-lib")
     normalImplementation project(":sample-base-lib")
-    pluginCompileOnly project(":sample-base-lib-second")
-    normalImplementation project(":sample-base-lib-second")
+//    pluginCompileOnly project(":sample-base-lib-second")
+//    normalImplementation project(":sample-base-lib-second")
 
     //Shadow Transform后业务代码会有一部分实际引用runtime中的类
     //如果不以compileOnly方式依赖，会导致其他Transform或者Proguard找不到这些类
@@ -109,7 +109,7 @@ shadow {
                         buildTask = ':sample-app:assemblePluginDebug'
                         apkPath = 'projects/sample/source/sample-plugin/sample-app/build/outputs/apk/plugin/debug/sample-app-plugin-debug.apk'
                         hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                        dependsOn = ['sample-base','sample-base-second'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
+                        dependsOn = ['sample-base'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
                     }
 
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-plugin-debug.apk 打进zip包中了
@@ -119,26 +119,25 @@ shadow {
                         buildTask = ':sample-base:assemblePluginDebug'
                         apkPath = 'projects/sample/source/sample-plugin/sample-base/build/outputs/apk/plugin/debug/sample-base-plugin-debug.apk'
                         hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                        dependsOn = ['sample-base-second'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
                     }
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-second-plugin-debug.apk 打进zip包中了
-                    sampleBaseSecond {
-                        businessName = 'sample-base-second'
-                        partKey = 'sample-base-second'
-                        buildTask = ':sample-base-second:assemblePluginDebug'
-                        apkPath = 'projects/sample/source/sample-plugin/sample-base-second/build/outputs/apk/plugin/debug/sample-base-second-plugin-debug.apk'
-                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                    }
+//                    sampleBaseSecond {
+//                        businessName = 'sample-base-second'
+//                        partKey = 'sample-base-second'
+//                        buildTask = ':sample-base-second:assemblePluginDebug'
+//                        apkPath = 'projects/sample/source/sample-plugin/sample-base-second/build/outputs/apk/plugin/debug/sample-base-second-plugin-debug.apk'
+//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+//                    }
 
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-plugin-debug.apk 打进zip包中了
-                    sampleChild {
-                        businessName = 'sample-child-plugin-app'
-                        partKey = 'sample-child'
-                        buildTask = ':sample-child:assemblePluginDebug'
-                        apkPath = 'projects/sample/source/sample-plugin/sample-child/build/outputs/apk/plugin/debug/sample-child-plugin-debug.apk'
-                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
-                        dependsOn = ['sample-base-second'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
-                    }
+//                    sampleChild {
+//                        businessName = 'sample-child-plugin-app'
+//                        partKey = 'sample-child'
+//                        buildTask = ':sample-child:assemblePluginDebug'
+//                        apkPath = 'projects/sample/source/sample-plugin/sample-child/build/outputs/apk/plugin/debug/sample-child-plugin-debug.apk'
+//                        hostWhiteList = ["com.tencent.shadow.sample.host.lib"]
+//                        dependsOn = ['sample-base'] //注意: 被依赖的插件在加载插件的时候要优先加载,且配置的是partKey
+//                    }
 
                     //插件依赖，这里也可以去掉，但是去掉后，打zip包的时候就不会把 sample-base-plugin-debug.apk 打进zip包中了
                     /*sampleGrandSon {

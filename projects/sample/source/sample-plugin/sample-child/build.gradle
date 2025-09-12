@@ -69,7 +69,8 @@ android {
 
 dependencies {
 //    implementation project(":bury-point")
-    compileOnly project(":sample-base-lib-second")
+//    compileOnly project(":sample-base-lib-second")
+    compileOnly project(":sample-base-lib")
 //    normalImplementation project(":sample-base-lib")
 //    implementation project(":sample-base-lib")
 //

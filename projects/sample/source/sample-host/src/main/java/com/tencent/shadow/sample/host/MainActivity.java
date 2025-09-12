@@ -53,9 +53,9 @@ public class MainActivity extends Activity {
         final Spinner partKeySpinner = new Spinner(this);
         ArrayAdapter<String> partKeysAdapter = new ArrayAdapter<>(this, R.layout.part_key_adapter);
         partKeysAdapter.addAll(
-                PART_KEY_PLUGIN_SAMPLE_CHAID,
                 Constant.PART_KEY_PLUGIN_MAIN_APP,
                 Constant.PART_KEY_PLUGIN_ANOTHER_APP,
+                PART_KEY_PLUGIN_SAMPLE_CHAID,
                 PART_KEY_PLUGIN_SAMPLE_GRANDSON
         );
         partKeySpinner.setAdapter(partKeysAdapter);
