@@ -55,7 +55,7 @@ dependencies {
     implementation 'com.tencent.shadow.dynamic:dynamic-host'
     implementation project(':sample-constant')
     implementation project(':sample-host-lib')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
 
 

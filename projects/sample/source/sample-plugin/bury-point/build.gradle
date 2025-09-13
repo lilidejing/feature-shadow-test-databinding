@@ -64,7 +64,7 @@ dependencies {
 
     compileOnly('androidx.appcompat:appcompat') {
         version {
-            strictly '1.3.0' // Will make sure that library uses that version in your build
+            strictly '1.1.0' // Will make sure that library uses that version in your build
         }
     }
 

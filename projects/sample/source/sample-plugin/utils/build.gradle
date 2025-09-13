@@ -58,7 +58,7 @@ dependencies {
     // 公共的pda库
     //implementation 'com.kye.pda.biz.component:common-pda'
 
-    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "androidx.annotation:annotation:1.8.0"
     implementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation "commons-cli:commons-cli:1.5.0"

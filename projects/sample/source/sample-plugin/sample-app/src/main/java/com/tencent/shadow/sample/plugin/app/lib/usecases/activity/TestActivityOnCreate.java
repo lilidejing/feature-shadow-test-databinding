@@ -19,6 +19,7 @@
 package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -54,9 +55,17 @@ public class TestActivityOnCreate extends AppCompatActivity {
         }
     }
 
+
+  /*  @Override
+    protected void attachBaseContext(Context newBase) {
+        newBase.setTheme(R.style.PluginAppTheme);
+        super.attachBaseContext(newBase);
+    }*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        setTheme(R.style.PluginAppTheme);
+//        setTheme(androidx.appcompat.R.style.Theme_AppCompat);
         super.onCreate(savedInstanceState);
         // 先 setContentView
         setContentView(R.layout.layout_activity_lifecycle);

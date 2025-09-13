@@ -52,7 +52,7 @@
             android:multiprocess="true"
             android:name="com.tencent.shadow.sample.plugin.runtime.PluginDefaultProxyActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+            android:theme="@style/Theme.AppCompat" />
 
         <activity
             android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|screenLayout|fontScale|uiMode|orientation|screenSize|smallestScreenSize|layoutDirection"
