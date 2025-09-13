@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.tencent.shadow.sample.plugin.app.lib.base.plugin">
-
+    <!--        android:theme="@style/Theme.MyApp">-->
     <application
         android:name="com.tencent.shadow.sample.plugin.app.lib.gallery.TestApplication"
-        android:theme="@style/Theme.MyApp">
+        android:theme="@style/Theme.AppCompat">
 
-        <activity android:name="com.tencent.test.MyTestActivity" />
+        <activity android:name="com.tencent.test.MyTestActivity" android:theme="@style/Theme.AppCompat"/>
 
     </application>
 </manifest>

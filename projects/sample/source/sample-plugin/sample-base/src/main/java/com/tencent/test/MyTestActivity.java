@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.kye.pda.burypoint.QuickTrackingUtil;
 import com.kye.pda.burypoint.constants.Constants;
 
@@ -14,7 +16,7 @@ import com.kye.pda.burypoint.constants.Constants;
  * Description:
  * @date : 2025/5/21
  */
-public class MyTestActivity extends Activity {
+public class MyTestActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {

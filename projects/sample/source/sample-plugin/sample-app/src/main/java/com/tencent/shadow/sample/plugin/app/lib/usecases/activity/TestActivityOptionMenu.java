@@ -19,10 +19,13 @@
 package com.tencent.shadow.sample.plugin.app.lib.usecases.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 
 import com.tencent.shadow.sample.plugin.app.lib.R;
+//import com.tencent.shadow.sample.plugin.app.lib.gallery.BaseActivity;
 import com.tencent.shadow.sample.plugin.app.lib.gallery.cases.entity.UseCase;
 
 public class TestActivityOptionMenu extends Activity {
@@ -46,10 +49,21 @@ public class TestActivityOptionMenu extends Activity {
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
-        setTheme(R.style.PluginAppThemeLight);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_activity_settheme);
         setTitle("看右边的 menu ->");
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Intent intent = new Intent();
+//                intent.setClassName(TestActivityOptionMenu.this,"com.tencent.test.MyTestActivity");
+//                startActivity(intent);
+                Intent intent = new Intent();
+                intent.setClassName(TestActivityOptionMenu.this, "com.tencent.shadow.sample.plugin.app.lib.usecases.activity.TestActivityOnCreate");
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -48,10 +48,44 @@ dependencies {
     implementation "androidx.annotation:annotation:1.8.0"
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+//    implementation 'com.google.android.material:material:1.4.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
 
 
     api project(":bury-point")
+}
+
+
+configurations.configureEach {
+    resolutionStrategy {
+        // 编译解析的时候只要有重复的版本，也就是版本冲突的时候，就会直接报错，控制台会输出具体的依赖项和版本，需要检测是否有版本冲突时打开。
+//        failOnVersionConflict()
+        eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            println("group-> ${requested.group}")
+//            if (requested.group == 'androidx.annotation'
+//                    && requested.name == 'annotation') {
+//                details.useVersion "1.0.0"
+//            }
+            /* if (requested.group == 'org.jetbrains.kotlin') {
+                 if (requested.name == 'kotlin-stdlib'
+                         || requested.name == 'kotlin-stdlib-jdk7'
+                         || requested.name == 'kotlin-stdlib-jdk8'
+                         || requested.name == 'kotlin-stdlib-common'
+                 )
+                     details.useVersion "1.7.20"
+             }*/
+
+            println "发现了  ${requested.group} ${requested.name}  details-> ${requested.version}}"
+            // AppCompat 强制指定版本
+            if (requested.group == 'androidx.appcompat'
+                    && requested.name == 'appcompat') {
+                println "发现 appcompat fuck ${requested.group} ${requested.name}  details-> ${requested.version}}"
+                details.useVersion "1.1.0"
+                details.because("插件 A、B 必须统一 appcompat 版本，避免 1.3.1 导致 VectorDrawableCompat 报错")
+            }
+        }
+    }
+
 }
