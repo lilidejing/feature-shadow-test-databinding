@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 //import androidx.databinding.DataBindingUtil;
@@ -65,7 +66,9 @@ public class TestActivityOnCreate extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        setTheme(R.style.PluginAppTheme);
-//        setTheme(androidx.appcompat.R.style.Theme_AppCompat);
+        String getThemeName =  getResources().getResourceEntryName(androidx.appcompat.R.style.Theme_AppCompat);
+        Log.d("lgj","getThemeName=="+getThemeName);
+        setTheme(androidx.appcompat.R.style.Theme_AppCompat);
         super.onCreate(savedInstanceState);
         // 先 setContentView
         setContentView(R.layout.layout_activity_lifecycle);

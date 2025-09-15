@@ -97,7 +97,7 @@ class PluginClassLoader(
                 // ======================== START: 最終修正版 ========================
                 // 對於 DataBinding 相關的核心類別，我們採用「自己優先」策略
                 // 這是為了防止被依賴的插件 B 的同名類別污染
-                if (className.startsWith("androidx.databinding.") || className.contains("DataBinderMapperImpl")) {
+                if (className.startsWith("androidx.databinding.") || className.contains("DataBinderMapperImpl") || className.contains("androidx.appcompat")) {
                     Log.d("PluginClassLoader",
                         "Self-First loading for DataBinding class: $className  $this"
                     )
