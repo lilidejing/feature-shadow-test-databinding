@@ -25,6 +25,7 @@ import android.content.ServiceConnection
 import android.os.Handler
 import android.os.IBinder
 import android.os.Looper
+import android.os.Process
 import com.tencent.shadow.core.loader.ShadowPluginLoader
 import com.tencent.shadow.core.runtime.container.ContentProviderDelegateProviderHolder
 import com.tencent.shadow.core.runtime.container.DelegateProviderHolder
@@ -68,6 +69,10 @@ internal class DynamicPluginLoader(hostContext: Context, uuid: String) {
                 CORE_LOADER_FACTORY_IMPL_NAME
             )
             mPluginLoader = coreLoaderFactory.build(hostContext)
+
+            println("lgj  DynamicPluginLoader  执行 init 方法，DelegateProviderHolder 设置mPluginLoader(ShadowPluginLoader)== $mPluginLoader"+"  进程id  "+Process.myPid())
+            println("lgj  DynamicPluginLoader  执行 init 方法，mPluginLoader.delegateProviderKey== $mPluginLoader.delegateProviderKey")
+
             DelegateProviderHolder.setDelegateProvider(
                 mPluginLoader.delegateProviderKey,
                 mPluginLoader
@@ -83,6 +88,7 @@ internal class DynamicPluginLoader(hostContext: Context, uuid: String) {
 
     fun loadPlugin(partKey: String) {
         val installedApk = mUuidManager.getPlugin(mUuid, partKey)
+        println("lgj  DynamicPluginLoader  执行 loadPlugin方法，mPluginLoader(ShadowPluginLoader)== $mPluginLoader"+"  进程id  "+Process.myPid())
         val future = mPluginLoader.loadPlugin(installedApk)
         future.get()
     }

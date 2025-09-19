@@ -56,6 +56,8 @@ public class ShadowContext extends SubDirContextThemeWrapper {
     }
 
     public final void setPluginClassLoader(ClassLoader classLoader) {
+        Log.d("lgj","ShadowContext   ShadowContext=="+this);
+        Log.d("lgj","ShadowContext   setPluginClassLoader===="+classLoader);
         mPluginClassLoader = classLoader;
     }
 
@@ -113,6 +115,7 @@ public class ShadowContext extends SubDirContextThemeWrapper {
 
     @Override
     public ClassLoader getClassLoader() {
+        Log.d("lgj","ShadowContext   getClassLoader===="+mPluginClassLoader);
         return mPluginClassLoader;
     }
 

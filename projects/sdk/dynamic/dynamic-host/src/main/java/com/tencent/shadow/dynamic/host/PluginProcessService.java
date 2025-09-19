@@ -31,6 +31,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
 
@@ -129,6 +130,7 @@ public class PluginProcessService extends BasePluginProcessService {
     }
 
     void loadPluginLoader(String uuid) throws FailedException {
+        Log.d("lgj","PluginProcessService loadPluginLoader====uuid -- =="+uuid+"  进程id "+ Process.myPid());
         if (mLogger.isInfoEnabled()) {
             mLogger.info("loadPluginLoader uuid:" + uuid + " mPluginLoader:" + mPluginLoader);
         }
@@ -161,6 +163,7 @@ public class PluginProcessService extends BasePluginProcessService {
             PluginLoaderImpl pluginLoader = new LoaderImplLoader().load(installedApk, uuid, getApplicationContext());
             pluginLoader.setUuidManager(mUuidManager);
             mPluginLoader = pluginLoader;
+            Log.d("lgj","PluginProcessService  loadPluginLoader方法   mPluginLoader====="+mPluginLoader+"  进程id "+ Process.myPid());
         } catch (RuntimeException e) {
             if (mLogger.isErrorEnabled()) {
                 mLogger.error("loadPluginLoader发生RuntimeException", e);

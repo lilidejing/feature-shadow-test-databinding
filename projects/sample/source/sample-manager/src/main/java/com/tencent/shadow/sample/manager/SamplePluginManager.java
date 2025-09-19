@@ -27,8 +27,11 @@ import static com.tencent.shadow.sample.constant.Constant.PART_KEY_PLUGIN_SAMPLE
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Process;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -110,6 +113,12 @@ public class SamplePluginManager extends FastPluginManager {
     }
 
     private void onStartActivity(final Context context, Bundle bundle, final EnterCallback callback) {
+
+        // 打印调用栈
+
+       StackTraceUtil.printStackTrace("lgj onStartActivity ");
+
+
         final String pluginZipPath = bundle.getString(Constant.KEY_PLUGIN_ZIP_PATH);
         final String partKey = bundle.getString(Constant.KEY_PLUGIN_PART_KEY);
         final String className = bundle.getString(Constant.KEY_ACTIVITY_CLASSNAME);
@@ -130,11 +139,16 @@ public class SamplePluginManager extends FastPluginManager {
                     // 1安装插件包
                     InstalledPlugin installedPlugin = installPlugin(pluginZipPath, null, true);
 
+
+                    Log.d("lgj","onStartActivity==进程id="+ Process.myPid());
+
                     // 2加载插件(包括: 绑定PPS服务，loadRuntime，loadPluginLoader，loadPlugin)
                     //被依赖的插件在加载插件的时候要优先加载
 //                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_BASE_SECOND);
+                    Log.d("lgj","onStartActivity==准备执行loadPlugin====installedPlugin.UUID"+ installedPlugin.UUID+"  PART_KEY_PLUGIN_BASE+"+PART_KEY_PLUGIN_BASE);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_BASE);
 //                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_CHAID);
+                    Log.d("lgj","onStartActivity==准备执行loadPlugin====installedPlugin.UUID"+ installedPlugin.UUID+"  PART_KEY_PLUGIN_MAIN_APP+"+PART_KEY_PLUGIN_MAIN_APP);
                     loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_MAIN_APP);
 //                    loadPlugin(installedPlugin.UUID, PART_KEY_PLUGIN_SAMPLE_GRANDSON);
 

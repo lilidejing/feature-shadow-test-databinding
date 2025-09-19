@@ -19,6 +19,7 @@
 package com.tencent.shadow.sample.manager;
 
 import android.content.Context;
+import android.os.Process;
 import android.os.RemoteException;
 import android.util.Log;
 import android.util.Pair;
@@ -132,6 +133,7 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
     }
 
     private void loadPluginLoaderAndRuntime(String uuid, String partKey) throws RemoteException, TimeoutException, FailedException {
+        Log.d("lgj","loadPluginLoaderAndRuntime====mPpsController=="+mPpsController+"  进程id "+ Process.myPid());
         if (mPpsController == null) {
             //绑定PPS服务
             bindPluginProcessService(getPluginProcessServiceName(partKey));
@@ -144,10 +146,12 @@ public abstract class FastPluginManager extends PluginManagerThatUseDynamicLoade
     }
 
     protected void loadPlugin(String uuid, String partKey) throws RemoteException, TimeoutException, FailedException {
+        Log.d("lgj","loadPlugin====uuid=="+uuid+"    partKey=="+partKey);
         //绑定PPS服务和加载Runtime以及加载插件Loader
         loadPluginLoaderAndRuntime(uuid, partKey);
         Map map = mPluginLoader.getLoadedPlugin();
         Log.e("LCF", "mPluginLoader = " + mPluginLoader);
+        Log.d("lgj","loadPlugin====uuid=="+uuid+"    partKey=="+partKey+"  mPluginLoader=="+mPluginLoader+"   进程id="+Process.myPid());
         if (!map.containsKey(partKey)) {
             //加载插件
             mPluginLoader.loadPlugin(partKey);

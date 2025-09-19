@@ -22,7 +22,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.DeadObjectException;
 import android.os.IBinder;
+import android.os.Process;
 import android.os.RemoteException;
+import android.util.Log;
 
 import com.tencent.shadow.core.common.Logger;
 import com.tencent.shadow.core.common.LoggerFactory;
@@ -101,13 +103,17 @@ public abstract class PluginManagerThatUseDynamicLoader extends BaseDynamicPlugi
         if (mLogger.isInfoEnabled()) {
             mLogger.info("loadPluginLoader mPluginLoader:" + mPluginLoader);
         }
+        Log.d("lgj","loadPluginLoader====loadPluginLoader=uuid=="+uuid+"    mPluginLoader=="+mPluginLoader + "  进程id "+ Process.myPid());
         if (mPluginLoader == null) {
             PpsStatus ppsStatus = mPpsController.getPpsStatus();
+            Log.d("lgj","loadPluginLoader====ppsStatus.loaderLoaded=="+ppsStatus.loaderLoaded);
             if (!ppsStatus.loaderLoaded) {
+                Log.d("lgj","loadPluginLoader====准备  mPpsController.loadPluginLoader=uuid=="+uuid);
                 mPpsController.loadPluginLoader(uuid);
             }
             IBinder iBinder = mPpsController.getPluginLoader();
             mPluginLoader = new BinderPluginLoader(iBinder);
+            Log.d("lgj","loadPluginLoader====返回  mPluginLoader=="+mPluginLoader+"  进程id "+ Process.myPid());
         }
     }
 }

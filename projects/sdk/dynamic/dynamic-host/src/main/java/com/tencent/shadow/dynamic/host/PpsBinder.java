@@ -20,6 +20,8 @@ package com.tencent.shadow.dynamic.host;
 
 import android.os.IBinder;
 import android.os.Parcel;
+import android.os.Process;
+import android.util.Log;
 
 import static android.os.Parcelable.PARCELABLE_WRITE_RETURN_VALUE;
 
@@ -72,6 +74,7 @@ class PpsBinder extends android.os.Binder {
                 String _arg0;
                 _arg0 = data.readString();
                 try {
+                    Log.d("lgj","PpsBinder  loadPluginLoader====加载插件Loader -- mPps=="+mPps+"  _arg0=="+_arg0+"  进程id "+ Process.myPid());
                     //加载插件Loader
                     mPps.loadPluginLoader(_arg0);
                     reply.writeInt(TRANSACTION_CODE_NO_EXCEPTION);

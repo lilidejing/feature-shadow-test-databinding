@@ -19,6 +19,7 @@
 package com.tencent.shadow.dynamic.host;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.tencent.shadow.core.common.InstalledApk;
 import com.tencent.shadow.dynamic.apk.ApkClassLoader;
@@ -51,6 +52,10 @@ final class LoaderImplLoader extends ImplLoader {
                 LoaderFactory.class,
                 sLoaderFactoryImplClassName
         );
+        Log.d("lgj","LoaderImplLoader  load方法   installedApk====="+installedApk);
+        Log.d("lgj","LoaderImplLoader  load方法   uuid====="+uuid);
+        Log.d("lgj","LoaderImplLoader  load方法   appContext====="+appContext);
+        Log.d("lgj","LoaderImplLoader  load方法   loaderFactory====="+loaderFactory);
 
         return loaderFactory.buildLoader(uuid, appContext);
     }

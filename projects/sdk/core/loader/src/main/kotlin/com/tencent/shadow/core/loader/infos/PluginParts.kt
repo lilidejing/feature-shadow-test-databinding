@@ -30,4 +30,8 @@ class PluginParts(
     val classLoader: PluginClassLoader,
     val resources: Resources,
     val pluginPackageManager: PluginPackageManager
-)
+){
+    override fun toString(): String {
+        return "PluginParts(appComponentFactory=$appComponentFactory, application=$application, classLoader=$classLoader, resources=$resources, pluginPackageManager=$pluginPackageManager)"
+    }
+}

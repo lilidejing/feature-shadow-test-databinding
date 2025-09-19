@@ -50,6 +50,7 @@ internal class PluginLoaderBinder(private val mDynamicPluginLoader: DynamicPlugi
                 val _arg0: String
                 _arg0 = data.readString()!!
                 try {
+                    println("lgj  PluginLoaderBinder 执行loadPlugin===mDynamicPluginLoader==$mDynamicPluginLoader")
                     //加载插件
                     mDynamicPluginLoader.loadPlugin(_arg0)
                     reply.writeNoException()

@@ -47,6 +47,7 @@ public class PluginContainerActivity extends GeneratedPluginContainerActivity im
         DelegateProvider delegateProvider = DelegateProviderHolder.getDelegateProvider(getDelegateProviderKey());
         if (delegateProvider != null) {
             delegate = delegateProvider.getHostActivityDelegate(this.getClass());
+            Log.d("lgj","获取到Activity代理类，新创建的   "+ delegate);
             delegate.setDelegator(this);
         } else {
             Log.e(TAG, "PluginContainerActivity: DelegateProviderHolder没有初始化");

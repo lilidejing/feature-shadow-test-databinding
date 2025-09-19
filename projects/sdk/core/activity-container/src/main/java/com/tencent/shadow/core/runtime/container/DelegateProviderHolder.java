@@ -20,6 +20,7 @@ package com.tencent.shadow.core.runtime.container;
 
 
 import android.os.SystemClock;
+import android.util.Log;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -45,10 +46,15 @@ public class DelegateProviderHolder {
     }
 
     public static void setDelegateProvider(String key, DelegateProvider delegateProvider) {
+
+        Log.d("lgj","DelegateProviderHolder key==+"+key+" 缓存代理类："+delegateProvider);
         delegateProviderMap.put(key, delegateProvider);
     }
 
     public static DelegateProvider getDelegateProvider(String key) {
+
+
+        Log.d("lgj","DelegateProviderHolder key=="+key+"    获取代理类Provider："+delegateProviderMap.get(key));
         return delegateProviderMap.get(key);
     }
 }

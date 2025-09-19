@@ -19,6 +19,7 @@
 package com.tencent.shadow.core.loader.blocs
 
 import android.content.Context
+import android.os.Process
 import android.util.Log
 import com.tencent.shadow.core.common.InstalledApk
 import com.tencent.shadow.core.load_parameters.LoadParameters
@@ -47,6 +48,7 @@ object LoadPluginBloc {
         installedApk: InstalledApk,
         loadParameters: LoadParameters
     ): Future<*> {
+        println("lgj  准备获取PluginClassLoader   "+"  进程id  "+ Process.myPid())
         if (installedApk.apkFilePath == null) {
             throw LoadPluginException("apkFilePath==null")
         } else {
@@ -54,8 +56,8 @@ object LoadPluginBloc {
             val buildClassLoader = executorService.submit(Callable {
                 lock.withLock {
                     //加载插件
-                    Log.e("LCF", "000000")
-                    Log.e("LCF", "pluginPartsMap = " + pluginPartsMap.toString())
+                    Log.e("LCF", "000000===yeyeyeye")
+                    Log.e("LCF", "pluginPartsMap yeyeyeye = " + pluginPartsMap.toString())
                     LoadApkBloc.loadPlugin(installedApk, loadParameters, pluginPartsMap)
                 }
             })
@@ -63,6 +65,7 @@ object LoadPluginBloc {
             val buildPluginManifest = executorService.submit(Callable {
                 Log.e("LCF", "111111")
                 val pluginClassLoader = buildClassLoader.get()
+                Log.e("LCF", "====buildPluginManifest===pluginClassLoader==$pluginClassLoader")
                 Log.e("LCF", "222222")
                 // 解析插件manifest
                 val pluginManifest = pluginClassLoader.loadPluginManifest()
@@ -109,6 +112,7 @@ object LoadPluginBloc {
             val buildAppComponentFactory = executorService.submit(Callable {
                 Log.e("LCF", "888888")
                 val pluginClassLoader = buildClassLoader.get()
+                Log.e("LCF", "====buildAppComponentFactory===pluginClassLoader==$pluginClassLoader")
                 Log.e("LCF", "999999")
                 val pluginManifest = buildPluginManifest.get()
                 Log.e("LCF", "100000")
@@ -123,7 +127,7 @@ object LoadPluginBloc {
             val buildApplication = executorService.submit(Callable {
                 Log.e("LCF", "11-11-11")
                 val pluginClassLoader = buildClassLoader.get()
-                Log.e("LCF", "12-12-12")
+                Log.e("LCF", "12-12-12===buildApplication pluginClassLoader==$pluginClassLoader")
                 val resources = buildResources.get()
                 Log.e("LCF", "13-13-13")
                 val appComponentFactory = buildAppComponentFactory.get()
@@ -149,6 +153,7 @@ object LoadPluginBloc {
                 Log.e("LCF", "14-14-14")
                 val pluginPackageManager = buildPackageManager.get()
                 val pluginClassLoader = buildClassLoader.get()
+                Log.e("LCF", "====buildRunningPlugin===pluginClassLoader==$pluginClassLoader")
                 val resources = buildResources.get()
                 val shadowApplication = buildApplication.get()
                 val appComponentFactory = buildAppComponentFactory.get()
@@ -169,6 +174,9 @@ object LoadPluginBloc {
                         resources,
                         pluginPackageManager
                     )
+
+                    Log.d("lgj", "pluginPartsMap ${loadParameters.partKey} 存放ClassLoader相关 $pluginClassLoader")
+
                     PluginPartInfoManager.addPluginInfo(
                         pluginClassLoader, PluginPartInfo(
                             shadowApplication, resources,

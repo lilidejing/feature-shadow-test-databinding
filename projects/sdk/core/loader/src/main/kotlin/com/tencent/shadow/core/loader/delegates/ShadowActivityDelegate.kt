@@ -88,6 +88,7 @@ open class ShadowActivityDelegate(private val mDI: DI) : GeneratedShadowActivity
     override fun onCreate(savedInstanceState: Bundle?) {
         val pluginInitBundle = savedInstanceState ?: mHostActivityDelegator.intent.extras!!
 
+        println("lgj   ShadowActivityDelegate   onCreate 方法   ShadowActivityDelegate==$this")
         mCallingActivity = pluginInitBundle.getParcelable(CM_CALLING_ACTIVITY_KEY)
         mBusinessName = pluginInitBundle.getString(CM_BUSINESS_NAME_KEY, "")
         val partKey = pluginInitBundle.getString(CM_PART_KEY)!!
@@ -166,6 +167,8 @@ open class ShadowActivityDelegate(private val mDI: DI) : GeneratedShadowActivity
     ) {
         pluginActivity.setHostActivityDelegator(mHostActivityDelegator)
         pluginActivity.setPluginResources(mPluginResources)
+
+        println("lgj   initPluginActivity   pluginActivity 设置ClassLoader $mPluginClassLoader")
         pluginActivity.setPluginClassLoader(mPluginClassLoader)
         pluginActivity.setPluginComponentLauncher(mComponentManager)
         pluginActivity.setPluginApplication(mPluginApplication)
